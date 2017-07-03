@@ -28,8 +28,7 @@
         <!--Panel Controller-->
         <scene sceneID="Na7-mB-3cV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6gu-Zy-rgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <viewController id="dVt-lX-nWp" userLabel="Panel Controller" sceneMemberID="viewController">
+                <viewController id="dVt-lX-nWp" userLabel="Panel Controller" customClass="PanelController" customModule="NiceCalc" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="imd-y2-DfT"/>
                         <viewControllerLayoutGuide type="bottom" id="dY7-bA-k2c"/>
@@ -57,13 +56,18 @@
                     </view>
                     <navigationItem key="navigationItem" id="pQJ-zm-utc"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6gu-Zy-rgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="125.59999999999999" y="59.820089955022496"/>
         </scene>
         <!--Display Controller-->
         <scene sceneID="ejK-sC-2t4">
             <objects>
-                <viewController id="mFA-xP-xlw" userLabel="Display Controller" sceneMemberID="viewController">
+                <viewController id="mFA-xP-xlw" userLabel="Display Controller" customClass="DisplayController" customModule="NiceCalc" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZTr-mV-3O3"/>
+                        <viewControllerLayoutGuide type="bottom" id="L2Q-rq-MMz"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1DW-aK-Las">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="84"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,6 +82,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.95452123880386353" green="0.94330567121505737" blue="0.078999079763889313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="display" destination="C8o-aR-lM9" id="1hC-cz-QYa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9S-Lr-n2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -86,18 +93,158 @@
         <!--Keyboard Controller-->
         <scene sceneID="WYo-1S-RkI">
             <objects>
-                <viewController id="7P0-PI-dw0" userLabel="Keyboard Controller" sceneMemberID="viewController">
+                <viewController id="7P0-PI-dw0" userLabel="Keyboard Controller" customClass="KeyboardController" customModule="NiceCalc" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="vYP-Q2-eTu"/>
+                        <viewControllerLayoutGuide type="bottom" id="A4T-sH-E43"/>
+                    </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ueK-gL-ivz">
                         <rect key="frame" x="0.0" y="0.0" width="343" height="495"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUD-90-gXj">
-                                <rect key="frame" x="0.0" y="0.0" width="77" height="79"/>
+                            <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eC-Y6-eWm">
+                                <rect key="frame" x="170" y="0.0" width="77" height="79"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" title="9">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="onNumTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="pJz-bv-yCG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARB-1x-uXz">
+                                <rect key="frame" x="85" y="0.0" width="77" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <state key="normal" title="8">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNumTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Y6b-eE-NC6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUD-90-gXj">
+                                <rect key="frame" x="0.0" y="0.0" width="77" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <state key="normal" title="7">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNumTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="GmQ-nQ-WVd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEJ-Ci-zxC">
+                                <rect key="frame" x="170" y="87" width="77" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <state key="normal" title="6">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNumTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="ESe-uN-Put"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NmH-sh-EWB">
+                                <rect key="frame" x="85" y="87" width="77" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <state key="normal" title="5">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNumTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="fMw-LV-NAB"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWd-u2-SUQ">
+                                <rect key="frame" x="0.0" y="87" width="77" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <state key="normal" title="4">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNumTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="am2-sS-bEp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzN-Sr-7ks">
+                                <rect key="frame" x="170" y="174" width="77" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <state key="normal" title="3">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNumTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="6Th-UQ-Wy2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hG-SK-miO">
+                                <rect key="frame" x="85" y="174" width="77" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <state key="normal" title="2">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNumTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="BoI-d5-hYy"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlX-eU-PeT">
+                                <rect key="frame" x="0.0" y="174" width="77" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <state key="normal" title="1">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNumTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="29H-mp-QBQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0B-Jg-0qV">
+                                <rect key="frame" x="85" y="261" width="77" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <state key="normal" title="0">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onNumTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="oKz-Mm-ybv"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qu-uf-dbS">
+                                <rect key="frame" x="170" y="261" width="77" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.87025256849315058" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <state key="normal" title="=">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onOperatorTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="0Oq-tp-gul"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odD-2i-6si">
+                                <rect key="frame" x="0.0" y="261" width="77" height="79"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.58870307470000005" green="0.55539929389999998" blue="1" alpha="0.3979173801" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                <state key="normal" title=".">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="onServiceTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="j8m-cZ-g0Q"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.19248786300000001" green="0.86873706790000005" blue="1" alpha="0.68477097600000003" colorSpace="custom" customColorSpace="sRGB"/>
@@ -105,7 +252,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72D-M4-aTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887" y="137"/>
+            <point key="canvasLocation" x="885.60000000000002" y="136.28185907046478"/>
         </scene>
     </scenes>
 </document>
