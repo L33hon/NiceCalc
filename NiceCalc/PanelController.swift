@@ -29,7 +29,7 @@ class PanelController: UIViewController {
     }
     
     func onNumericTap(num: Int) {
-        IntputAdapter.shared.input(value: num)
+        InputAdapter.shared.input(value: num)
     }
 
 }

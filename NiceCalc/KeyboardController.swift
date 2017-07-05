@@ -12,15 +12,16 @@ class KeyboardController: UIViewController {
     var onNumTap: ((_ num: Int)->())?
     var onUtilityTap: ((_ symbol: String)->())?
     var onServiceTap: ((_ keyIndex: Int)->())?
-
-    @IBAction func onNumTap(_ sender: UIButton) {
+    
+    @IBAction func onNumericTap(sender: UIButton) {
         onNumTap?(sender.tag)
+        print(sender.tag)
     }
     
     @IBAction func onOperatorTap(_ sender: UIButton) {
         onUtilityTap?(sender.currentTitle!)
     }
-
+    
     @IBAction func onServiceTap(_ sender: UIButton) {
         onServiceTap?(sender.tag)
     }
