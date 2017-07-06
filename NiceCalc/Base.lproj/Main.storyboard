@@ -43,6 +43,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="leadingMargin" secondItem="gfk-IG-nmB" secondAttribute="leading" id="7tc-fm-bOU"/>
                             <constraint firstItem="S0f-IO-Ua3" firstAttribute="top" secondItem="imd-y2-DfT" secondAttribute="bottom" id="Fee-Ac-f7f"/>
@@ -111,7 +112,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B6v-Zf-VNW">
                                         <rect key="frame" x="0.0" y="0.0" width="342" height="110.66666666666667"/>
                                         <subviews>
-                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-Wg-Iwo">
+                                            <button opaque="NO" tag="10010" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-Wg-Iwo">
                                                 <rect key="frame" x="0.0" y="0.0" width="81.666666666666671" height="110.66666666666667"/>
                                                 <color key="backgroundColor" red="0.58870307470000005" green="0.55539929389999998" blue="1" alpha="0.3979173801" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
@@ -119,10 +120,10 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onServiceTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="W26-YK-ZlS"/>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="DIo-yZ-X3v"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW7-Iq-Hxn">
+                                            <button opaque="NO" tag="10011" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW7-Iq-Hxn">
                                                 <rect key="frame" x="86.666666666666657" y="0.0" width="81.999999999999972" height="110.66666666666667"/>
                                                 <color key="backgroundColor" red="0.58870307470000005" green="0.55539929389999998" blue="1" alpha="0.3979173801" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
@@ -130,7 +131,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onServiceTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="ZFg-XO-yOH"/>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="PEB-28-rac"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4x-h2-M9e">
@@ -141,7 +142,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onServiceTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="jj4-wO-1sL"/>
+                                                    <action selector="onServiceTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Wna-k0-mup"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-I4-SiN">
@@ -152,7 +153,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onServiceTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="63N-l0-hnD"/>
+                                                    <action selector="onServiceTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Ivq-rI-Q2y"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -168,7 +169,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onNumericTapWithSender:" destination="7P0-PI-dw0" eventType="touchUpInside" id="wa3-ge-jLD"/>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Zhl-K1-yw7"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARB-1x-uXz">
@@ -179,7 +180,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onNumericTapWithSender:" destination="7P0-PI-dw0" eventType="touchUpInside" id="nO0-OB-CF5"/>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="UGh-fz-dDB"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eC-Y6-eWm">
@@ -190,10 +191,10 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onNumericTapWithSender:" destination="7P0-PI-dw0" eventType="touchUpInside" id="AA9-OR-5tG"/>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="NJO-kF-ci3"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1T-Gh-15L">
+                                            <button opaque="NO" tag="10004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1T-Gh-15L">
                                                 <rect key="frame" x="260.33333333333326" y="0.0" width="81.666666666666686" height="110.99999999999999"/>
                                                 <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
@@ -201,7 +202,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onOperatorTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="DkG-Vi-Qdf"/>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="dTf-Sb-BPH"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -217,7 +218,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onNumericTapWithSender:" destination="7P0-PI-dw0" eventType="touchUpInside" id="2j1-lQ-RJW"/>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Egh-ad-QVr"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NmH-sh-EWB">
@@ -228,7 +229,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onNumericTapWithSender:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Hqb-jf-2dp"/>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="blQ-gV-bRp"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEJ-Ci-zxC">
@@ -239,10 +240,10 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onNumericTapWithSender:" destination="7P0-PI-dw0" eventType="touchUpInside" id="ii8-nK-XbS"/>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Pog-6h-x5y"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVX-L9-BfU">
+                                            <button opaque="NO" tag="10003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVX-L9-BfU">
                                                 <rect key="frame" x="260.33333333333326" y="0.0" width="81.666666666666686" height="110.66666666666666"/>
                                                 <color key="backgroundColor" red="0.81700702022461413" green="0.21492961145317657" blue="0.90426713197969544" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
@@ -250,7 +251,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onOperatorTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="4TW-yO-oBr"/>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="nFc-qs-QCD"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -266,7 +267,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onNumericTapWithSender:" destination="7P0-PI-dw0" eventType="touchUpInside" id="EKA-M6-9lI"/>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="iuz-3d-Fdi"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hG-SK-miO">
@@ -277,7 +278,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onNumericTapWithSender:" destination="7P0-PI-dw0" eventType="touchUpInside" id="pLR-Hn-xGo"/>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Vcn-oJ-8CA"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzN-Sr-7ks">
@@ -288,10 +289,10 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onNumericTapWithSender:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Hs9-Gp-kHm"/>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="vmV-dg-XqM"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-93-31b">
+                                            <button opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-93-31b">
                                                 <rect key="frame" x="260.33333333333326" y="0.0" width="81.666666666666686" height="111"/>
                                                 <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
@@ -299,7 +300,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onOperatorTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="iHR-Id-hJ1"/>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="9oS-1P-ycy"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -307,7 +308,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="psx-eV-3tY">
                                         <rect key="frame" x="0.0" y="463.33333333333326" width="342" height="110.66666666666674"/>
                                         <subviews>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odD-2i-6si">
+                                            <button opaque="NO" tag="10015" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odD-2i-6si">
                                                 <rect key="frame" x="0.0" y="0.0" width="81.666666666666671" height="110.66666666666669"/>
                                                 <color key="backgroundColor" red="0.58870307470000005" green="0.55539929389999998" blue="1" alpha="0.3979173801" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
@@ -315,7 +316,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onServiceTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="j8m-cZ-g0Q"/>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="r4h-6T-SJ2"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0B-Jg-0qV">
@@ -326,7 +327,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onNumericTapWithSender:" destination="7P0-PI-dw0" eventType="touchUpInside" id="ue4-1N-idQ"/>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="0tv-m5-BEx"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qu-uf-dbS">
@@ -337,10 +338,10 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onOperatorTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="0Oq-tp-gul"/>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="3hd-k2-aEG"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaY-vO-crK">
+                                            <button opaque="NO" tag="10001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaY-vO-crK">
                                                 <rect key="frame" x="260.33333333333326" y="0.0" width="81.666666666666686" height="110.66666666666669"/>
                                                 <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
@@ -348,7 +349,7 @@
                                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="onOperatorTap:" destination="7P0-PI-dw0" eventType="touchUpInside" id="7DP-Nh-wZG"/>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="LP4-Oj-XjV"/>
                                                 </connections>
                                             </button>
                                         </subviews>

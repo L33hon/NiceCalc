@@ -15,8 +15,14 @@ class Brain/*: Model*/ {
     
     var operand: String = ""
     
-    func input(number: Int) {
+    func input(_ number: Int) {
         equation += "\(number)"
+        process()
+    }
+    
+    func input(_ operation: String) {
+        equation += operation
+        process()
     }
     
     func EnterEquation(equation: String) {
@@ -30,6 +36,6 @@ class Brain/*: Model*/ {
     
     func process() {
         //....
-        output.output(value: operand)
+        output.output(value: equation)
     }
 }

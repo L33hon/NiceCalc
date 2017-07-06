@@ -13,9 +13,13 @@ class InputAdapter {
     
     let brain = Brain.shared
     
-    func input(value: Int) {
+    func input(_ value: Int) {
         // Conversion if needed
-        brain.input(number: value)
+        brain.input(value)
+    }
+    
+    func input(_ operation: String) {
+        brain.input(operation)
     }
     
     func input(operation: Operation) {

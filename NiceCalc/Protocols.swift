@@ -29,7 +29,7 @@ protocol InputProtocol {
 }
 
 protocol OutputProtocol {
-    func presentResult(result: String)
+    func preseneqtResult(result: String)
 }
 
 protocol Model {

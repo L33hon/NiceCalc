@@ -10,19 +10,19 @@ import UIKit
 
 class KeyboardController: UIViewController {
     var onNumTap: ((_ num: Int)->())?
-    var onUtilityTap: ((_ symbol: String)->())?
+    var onUtilityTap: ((_ symbol: Int)->())?
     var onServiceTap: ((_ keyIndex: Int)->())?
     
-    @IBAction func onNumericTap(sender: UIButton) {
-        onNumTap?(sender.tag)
+    @IBAction func onNumericTap(button: UIButton) {
+        onNumTap?(button.tag)
     }
     
-    @IBAction func onOperatorTap(_ sender: UIButton) {
-        onUtilityTap?(sender.currentTitle!)
+    @IBAction func onOperatorTap(button: UIButton) {
+        onUtilityTap?(button.tag)
     }
     
-    @IBAction func onServiceTap(_ sender: UIButton) {
-        onServiceTap?(sender.tag)
+    @IBAction func onServiceTap(button: UIButton) {
+        onServiceTap?(button.tag)
     }
 }
 
