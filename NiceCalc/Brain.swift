@@ -8,15 +8,19 @@
 
 import Foundation
 
-class Brain: Model {
+class Brain/*: Model*/ {
     static let shared = Brain()
-    
     let output = OutputAdapter.shared
+    var equation = ""
     
     var operand: String = ""
     
     func input(number: Int) {
-        operand += "\(number)"
+        equation += "\(number)"
+    }
+    
+    func EnterEquation(equation: String) {
+        self.equation = equation
         process()
     }
     

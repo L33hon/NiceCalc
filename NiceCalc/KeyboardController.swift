@@ -15,7 +15,6 @@ class KeyboardController: UIViewController {
     
     @IBAction func onNumericTap(sender: UIButton) {
         onNumTap?(sender.tag)
-        print(sender.tag)
     }
     
     @IBAction func onOperatorTap(_ sender: UIButton) {

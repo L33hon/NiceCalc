@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OutputAdapter: OutputProtocol {
+class OutputAdapter {
     static let shared = OutputAdapter()
     
     var display: DisplayController?

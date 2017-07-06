@@ -8,7 +8,7 @@
 
 import Foundation
 
-class InputAdapter: InputProtocol {
+class InputAdapter {
     static let shared = InputAdapter()
     
     let brain = Brain.shared
