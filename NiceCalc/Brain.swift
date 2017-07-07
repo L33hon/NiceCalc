@@ -50,7 +50,7 @@ class Brain/*: Model*/ {
         return tokens
     }
     
-    func ReverseToPolandNotation(tokens: [String]) -> [String] {
+    func toPolandNotation(tokens: [String]) -> [String] {
         var preficsNotation: [String] = [] //main String array
         var stackWithOperators : [String] = [] // buffer for operations
         for token in tokens.reversed() {
