@@ -37,24 +37,7 @@ class PanelController: UIViewController {
     }
     
     func onOperatorTap(_ tag: Int) {
-        switch tag {
-        case Operation.pls.rawValue : inputAdapter.input("+")
-        case Operation.mns.rawValue : inputAdapter.input("-")
-        case Operation.mul.rawValue : inputAdapter.input("×")
-        case Operation.div.rawValue : inputAdapter.input("÷")
-        case Operation.pow.rawValue : inputAdapter.input("^")
-        case Operation.sqrt.rawValue : inputAdapter.input("√")
-        case Operation.sin.rawValue : inputAdapter.input("sin")
-        case Operation.cos.rawValue : inputAdapter.input("cos")
-        case Operation.log.rawValue : inputAdapter.input("log")
-        case Operation.leftBracket.rawValue : inputAdapter.input("(")
-        case Operation.rightBracket.rawValue : inputAdapter.input(")")
-        case Operation.pi.rawValue : inputAdapter.input("π")
-        case Operation.equal.rawValue : inputAdapter.input("=")
-        case Operation.dot.rawValue : inputAdapter.input(".")
-        default:
-            break
-        }
+        inputAdapter.input(operationTag: tag)
     }
 
 }
