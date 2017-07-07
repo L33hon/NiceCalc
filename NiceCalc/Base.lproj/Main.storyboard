@@ -134,7 +134,7 @@
                                                     <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="PEB-28-rac"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4x-h2-M9e">
+                                            <button opaque="NO" tag="10" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4x-h2-M9e">
                                                 <rect key="frame" x="173.66666666666669" y="0.0" width="81.666666666666657" height="110.66666666666667"/>
                                                 <color key="backgroundColor" red="0.58870307470000005" green="0.55539929389999998" blue="1" alpha="0.3979173801" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
@@ -145,7 +145,7 @@
                                                     <action selector="onServiceTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Wna-k0-mup"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-I4-SiN">
+                                            <button opaque="NO" tag="11" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-I4-SiN">
                                                 <rect key="frame" x="260.33333333333326" y="0.0" width="81.666666666666686" height="110.66666666666667"/>
                                                 <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
@@ -330,7 +330,7 @@
                                                     <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="0tv-m5-BEx"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qu-uf-dbS">
+                                            <button opaque="NO" tag="10013" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qu-uf-dbS">
                                                 <rect key="frame" x="173.66666666666669" y="0.0" width="81.666666666666657" height="110.66666666666669"/>
                                                 <color key="backgroundColor" red="0.31937153515691968" green="0.070242851300851242" blue="0.47870399748223347" alpha="0.58154109589041092" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>

@@ -20,7 +20,7 @@ class Brain/*: Model*/ {
         "×": 3,
         "÷": 3,
         "+": 2,
-        "−": 2,
+        "-": 2,
         "sin": 5,
         "cos": 5,
         "ln": 4,
@@ -32,13 +32,20 @@ class Brain/*: Model*/ {
     }
     
     func input(_ operation: String) {
-        equation += operation
+        equation += " " + operation + " "
         process()
     }
     
     func EnterEquation(equation: String) {
         self.equation = equation
         process()
+    }
+    
+    func equal() {
+        if equation != "" {
+        equation = String(CalculateResult())
+        process()
+        }
     }
     
     func input(operation: Operation) {
@@ -91,5 +98,40 @@ class Brain/*: Model*/ {
     func process() {
         //....
         output.output(value: equation)
+    }
+    
+    func CalculateResult() -> Double {
+        let equationInPNMode = toPolandNotation(tokens: toTokens(equation))
+        var stack : [String] = [] // buffer for digit
+        
+        for token in equationInPNMode.reversed() {
+            if Double(token) != nil {
+                stack += [token]
+                
+            } else if token == "sin" || token == "cos" || token == "ln" || token == "√"{
+                let number = Double(stack.removeLast())
+                
+                switch token {
+                case "sin": stack += [String(sin(number!))]
+                case "cos": stack += [String(cos(number!))]
+                case "ln": stack += [String(log(number!))]
+                case "√": stack += [String(sqrt(number!))]
+                default: break
+                }
+            } else {
+                let firstNumber = Double(stack.removeLast())
+                let secondNumber = Double(stack.removeLast())
+                
+                switch token {
+                case "+": stack += [String(firstNumber! + secondNumber!)]
+                case "-": stack += [String(firstNumber! - secondNumber!)]
+                case "÷": stack += [String(firstNumber! / secondNumber!)]
+                case "×": stack += [String(firstNumber! * secondNumber!)]
+                case "^": stack += [String(pow(firstNumber!,secondNumber!))]
+                default: break
+                }
+            }
+        }
+        return Double(stack.removeLast())!
     }
 }
