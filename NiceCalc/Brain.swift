@@ -14,16 +14,16 @@ class Brain/*: Model*/ {
     var equation = ""
     var operand: String = ""
     
-    let operation = [
-        "^": (prec: 4, rAssoc: true),
-        "√": (prec: 5, rAssoc: true),
-        "×": (prec: 3, rAssoc: false),
-        "÷": (prec: 3, rAssoc: false),
-        "+": (prec: 2, rAssoc: false),
-        "−": (prec: 2, rAssoc: false),
-        "sin": (prec: 5, rAssoc: true),
-        "cos": (prec: 5, rAssoc: true),
-        "ln": (prec: 4, rAssoc: true),
+    let operationPriorities = [
+        "^": 4,
+        "√": 5,
+        "×": 3,
+        "÷": 3,
+        "+": 2,
+        "−": 2,
+        "sin": 5,
+        "cos": 5,
+        "ln": 4,
     ]
     
     func input(_ number: Int) {
@@ -50,42 +50,43 @@ class Brain/*: Model*/ {
         return tokens
     }
     
-    func toPolandNotation(tokens: [String]) -> [String] {
-        var polandNotation: [String] = []
-        var stack : [String] = [] // buffer for operation
+    func ReverseToPolandNotation(tokens: [String]) -> [String] {
+        var preficsNotation: [String] = [] //main String array
+        var stackWithOperators : [String] = [] // buffer for operations
         for token in tokens.reversed() {
             switch token {
             case ")":
-                stack += [token]
+                stackWithOperators += [token]
             case "(":
-                while !stack.isEmpty {
-                    if stack.removeLast() == ")" {
+                while !stackWithOperators.isEmpty {
+                    let operatorInStack = stackWithOperators.removeLast()
+                    if operatorInStack == ")" {
                         break
                     } else {
-                        polandNotation = [stack.removeLast()] + polandNotation
+                        preficsNotation = [operatorInStack] + preficsNotation
                     }
                 }
             default:
-                if let firstOperand = operation[token] {
-                    for op in stack.reversed() {
-                        if let secondOperand = operation[op] {
-                            if !(firstOperand.prec > secondOperand.prec || (firstOperand.prec == secondOperand.prec && firstOperand.rAssoc)) {
-                                let lastOperator = [stack.removeLast()]
-                                polandNotation = lastOperator + polandNotation
+                if let currentOperatorPriority = operationPriorities[token] {// if this is an Operator
+                    for operatorInStack in stackWithOperators.reversed() {
+                        if let stackOperatorPriority = operationPriorities[operatorInStack] {
+                            if !(currentOperatorPriority > stackOperatorPriority) {
+                                let lastElement = [stackWithOperators.removeLast()]
+                                preficsNotation = lastElement + preficsNotation
                                 continue
                             }
                         }
                         break
                     }
-                    stack += [token]
-                    
-                } else {
-                    polandNotation = [token] + polandNotation
+                    stackWithOperators += [token]
+                } else {//if this is a Number
+                    preficsNotation = [token] + preficsNotation
                 }
             }
         }
-        return (stack + polandNotation)
+        return (stackWithOperators + preficsNotation)// adding all operations that left in the stack
     }
+
     
     func process() {
         //....
