@@ -27,12 +27,20 @@ class Brain/*: Model*/ {
     ]
     
     func input(_ number: Int) {
-        equation += "\(number)"
+        if !(equation == "0" || equation == "0.0") {
+            equation += "\(number)"
+            display += "\(number)"
+        }
+        else {
+            equation = "\(number)"
+            display = "\(number)"
+        }
         process()
     }
     
     func input(_ operation: String) {
         equation += " " + operation + " "
+        display += operation
         process()
     }
     
@@ -41,18 +49,29 @@ class Brain/*: Model*/ {
         process()
     }
     
+    func inputDot() {
+        equation += "."
+        display += "."
+    }
+    
     func clearOutput() {
         equation = "0.0"
+        display = "0.0"
         process()
     }
     
     func removeLastSymbol() {
-        if (equation != "0.0" || equation != "") {
+        if !(equation == "0.0" || equation == "") {
             if equation.characters.count > 1 {
-                equation.characters.removeLast()
+                if equation.characters.removeLast() == " " {
+                    equation.characters.removeLast()
+                    equation.characters.removeLast()
+                }
+                display.characters.removeLast()
             }
             else {
-                equation = "0.0"
+                equation = "0"
+                display = "0"
             }
             process()
         }
@@ -61,6 +80,7 @@ class Brain/*: Model*/ {
     func equal() {
         if equation != "" {
             equation = String(CalculateResult())
+            display = equation
             process()
         }
     }
@@ -114,7 +134,7 @@ class Brain/*: Model*/ {
     
     func process() {
         //if equation == "" || equation == "0.0"
-        output.output(value: equation)
+        output.output(value: display)
     }
     
     func CalculateResult() -> Double {
