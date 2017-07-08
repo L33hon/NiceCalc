@@ -31,7 +31,7 @@ class InputAdapter {
         case Operation.log.rawValue : input("log")
         case Operation.leftBracket.rawValue : input("(")
         case Operation.rightBracket.rawValue : input(")")
-        case Operation.pi.rawValue : input("π")
+        case Operation.pi.rawValue : brain.inputPi()
         case Operation.equal.rawValue : brain.equal()
         case Operation.dot.rawValue : brain.inputDot()
         default : break

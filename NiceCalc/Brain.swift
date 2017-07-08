@@ -49,9 +49,47 @@ class Brain/*: Model*/ {
         process()
     }
     
+    func roundNumber(_ num: Double, places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (num * divisor).rounded() / divisor
+    }
+    
+    /*
+    func inputPi() {
+        if equation.characters.last == " " {
+            equation += "\(roundNumber(Double.pi, places: 4)) "
+            display += "\(roundNumber(Double.pi, places: 4))"
+        }
+        else {
+            equation += " × \(roundNumber(Double.pi, places: 4)) "
+            display += "×\(roundNumber(Double.pi, places: 4))"
+        }
+        process()
+    }
+    */
+    
+    func inputPi() {
+        if equation.characters.last == " " {
+            equation += "\(Double.pi) "
+        display += "\(Double.pi)"
+        }
+        else {
+        equation += " × \(Double.pi) "
+        display += "×\(Double.pi)"
+        }
+        process()
+    }
+    
     func inputDot() {
-        equation += "."
-        display += "."
+        if equation.characters.last == " " {
+            equation += "0."
+            display += "0."
+        }
+        else {
+            equation += "."
+            display += "."
+        }
+        process()
     }
     
     func clearOutput() {
