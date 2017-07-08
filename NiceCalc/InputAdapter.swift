@@ -20,24 +20,31 @@ class InputAdapter {
     
     func input(operationTag: Int) {
         switch operationTag {
-            case Operation.pls.rawValue : input("+")
-            case Operation.mns.rawValue : input("-")
-            case Operation.mul.rawValue : input("×")
-            case Operation.div.rawValue : input("÷")
-            case Operation.pow.rawValue : input("^")
-            case Operation.sqrt.rawValue : input("√")
-            case Operation.sin.rawValue : input("sin")
-            case Operation.cos.rawValue : input("cos")
-            case Operation.log.rawValue : input("log")
-            case Operation.leftBracket.rawValue : input("(")
-            case Operation.rightBracket.rawValue : input(")")
-            case Operation.pi.rawValue : input("π")
-            case Operation.equal.rawValue : brain.equal()
-            case Operation.dot.rawValue : input(".")
-        default:
-            break
+        case Operation.pls.rawValue : input("+")
+        case Operation.mns.rawValue : input("-")
+        case Operation.mul.rawValue : input("×")
+        case Operation.div.rawValue : input("÷")
+        case Operation.pow.rawValue : input("^")
+        case Operation.sqrt.rawValue : input("√")
+        case Operation.sin.rawValue : input("sin")
+        case Operation.cos.rawValue : input("cos")
+        case Operation.log.rawValue : input("log")
+        case Operation.leftBracket.rawValue : input("(")
+        case Operation.rightBracket.rawValue : input(")")
+        case Operation.pi.rawValue : input("π")
+        case Operation.equal.rawValue : brain.equal()
+        case Operation.dot.rawValue : input(".")
+        default : break
         }
 
+    }
+    
+    func onServiseTap(tag: Int) {
+        switch tag {
+        case 10 : brain.removeLastSymbol()
+        case 11 : brain.clearOutput()
+        default: break
+        }
     }
     
     func input(_ operation: String) {

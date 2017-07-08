@@ -11,8 +11,8 @@ import Foundation
 class Brain/*: Model*/ {
     static let shared = Brain()
     let output = OutputAdapter.shared
-    var equation = ""
-    var operand: String = ""
+    var equation = "0.0"
+    var display = "0.0"
     
     let operationPriorities = [
         "^": 4,
@@ -41,10 +41,27 @@ class Brain/*: Model*/ {
         process()
     }
     
+    func clearOutput() {
+        equation = "0.0"
+        process()
+    }
+    
+    func removeLastSymbol() {
+        if (equation != "0.0" || equation != "") {
+            if equation.characters.count > 1 {
+                equation.characters.removeLast()
+            }
+            else {
+                equation = "0.0"
+            }
+            process()
+        }
+    }
+    
     func equal() {
         if equation != "" {
-        equation = String(CalculateResult())
-        process()
+            equation = String(CalculateResult())
+            process()
         }
     }
     
@@ -96,7 +113,7 @@ class Brain/*: Model*/ {
 
     
     func process() {
-        //....
+        //if equation == "" || equation == "0.0"
         output.output(value: equation)
     }
     

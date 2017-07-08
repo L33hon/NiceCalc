@@ -29,6 +29,9 @@ class PanelController: UIViewController {
             keyboard.onUtilityTap = { [weak self] tag in
                 self?.onOperatorTap(tag)
             }
+            keyboard.onServiceTap = { [weak self] tag in
+                self?.onServiceTap(tag)
+            }
         }
     }
     
@@ -40,4 +43,7 @@ class PanelController: UIViewController {
         inputAdapter.input(operationTag: tag)
     }
 
+    func onServiceTap(_ tag: Int) {
+        inputAdapter.onServiseTap(tag: tag)
+    }
 }
