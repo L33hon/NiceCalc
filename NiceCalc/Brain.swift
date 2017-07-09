@@ -11,8 +11,9 @@ import Foundation
 class Brain/*: Model*/ {
     static let shared = Brain()
     let output = OutputAdapter.shared
-    var equation = "0.0"
-    var display = "0.0"
+    var equation = "0"
+    var display = "0"
+    var IsStartingNewEquation = true
     
     let operationPriorities = [
         "^": 4,
@@ -27,16 +28,28 @@ class Brain/*: Model*/ {
     ]
     
     func input(_ number: Int) {
-        if !(equation == "0" || equation == "0.0") {
-            equation += "\(number)"
-            display += "\(number)"
-        }
-        else {
+        if IsStartingNewEquation {
             equation = "\(number)"
             display = "\(number)"
         }
+        else {
+            equation += "\(number)"
+            display += "\(number)"
+        }
         process()
     }
+    
+//    func input(_ number: Int) {
+//        if !(equation == "0" || equation == "0.0") {
+//            equation += "\(number)"
+//            display += "\(number)"
+//        }
+//        else {
+//            equation = "\(number)"
+//            display = "\(number)"
+//        }
+//        process()
+//    }
     
     func input(_ operation: String) {
         equation += " " + operation + " "
@@ -55,44 +68,46 @@ class Brain/*: Model*/ {
     }
     
     func inputPi() {
-        if equation.characters.last == " " {
-            equation += "\(Double.pi) "
-            display += "π"
+        if !IsStartingNewEquation {
+            if equation.characters.last == " " {
+                equation += "\(Double.pi) "
+                display += "π"
+            }
+            else {
+                equation += " × \(Double.pi) "
+                display += "×π"
+            }
         }
         else {
-            equation += " × \(Double.pi) "
-            display += "×π"
+            equation = "\(Double.pi) "
+            display = "π"
         }
         process()
     }
     
-    /*
-    func inputPi() {
-        if equation.characters.last == " " {
-            equation += "\(roundNumber(Double.pi, places: 4)) "
-            display += "\(roundNumber(Double.pi, places: 4))"
-        }
-        else {
-            equation += " × \(roundNumber(Double.pi, places: 4)) "
-            display += "×\(roundNumber(Double.pi, places: 4))"
-        }
-        process()
-    }
-    */
+//    func inputPi() {
+//        if equation.characters.last == " " {
+//            equation += "\(roundNumber(Double.pi, places: 4)) "
+//            display += "\(roundNumber(Double.pi, places: 4))"
+//        }
+//        else {
+//            equation += " × \(roundNumber(Double.pi, places: 4)) "
+//            display += "×\(roundNumber(Double.pi, places: 4))"
+//        }
+//        process()
+//    }
     
-    /*
-    func inputPi() {
-        if equation.characters.last == " " {
-            equation += "\(Double.pi) "
-        display += "\(Double.pi)"
-        }
-        else {
-        equation += " × \(Double.pi) "
-        display += "×\(Double.pi)"
-        }
-        process()
-    }
-    */
+//    func inputPi() {
+//        if equation.characters.last == " " {
+//            equation += "\(Double.pi) "
+//        display += "\(Double.pi)"
+//        }
+//        else {
+//        equation += " × \(Double.pi) "
+//        display += "×\(Double.pi)"
+//        }
+//        process()
+//    }
     
     func inputDot() {
         if equation.characters.last == " " {
@@ -107,9 +122,10 @@ class Brain/*: Model*/ {
     }
     
     func clearOutput() {
-        equation = "0.0"
-        display = "0.0"
+        equation = "0"
+        display = "0"
         process()
+        IsStartingNewEquation = true
     }
     
     func removeLastSymbol() {
@@ -126,12 +142,14 @@ class Brain/*: Model*/ {
             else {
                 display.characters.removeLast()
             }
+            process()
         }
         else {
             equation = "0"
             display = "0"
+            process()
+            IsStartingNewEquation = true
         }
-        process()
     }
     
     /*
@@ -158,6 +176,7 @@ class Brain/*: Model*/ {
             equation = String(CalculateResult())
             display = equation
             process()
+            IsStartingNewEquation = true
         }
     }
     
@@ -211,6 +230,7 @@ class Brain/*: Model*/ {
     func process() {
         //if equation == "" || equation == "0.0"
         output.output(value: display)
+        IsStartingNewEquation = false
     }
     
     func CalculateResult() -> Double {
