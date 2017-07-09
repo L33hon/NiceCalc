@@ -24,26 +24,11 @@ class PanelController: UIViewController {
             
             keyboard = controller
             keyboard.onNumTap = { [weak self] num in
-                self?.onNumericTap(num)
+                self?.inputAdapter.enterNum(num)
             }
             keyboard.onUtilityTap = { [weak self] tag in
-                self?.onOperatorTap(tag)
-            }
-            keyboard.onServiceTap = { [weak self] tag in
-                self?.onServiceTap(tag)
+                self?.inputAdapter.enterUtility(tag)
             }
         }
-    }
-    
-    func onNumericTap(_ num: Int) {
-        inputAdapter.input(num)
-    }
-    
-    func onOperatorTap(_ tag: Int) {
-        inputAdapter.input(operationTag: tag)
-    }
-
-    func onServiceTap(_ tag: Int) {
-        inputAdapter.onServiseTap(tag: tag)
     }
 }

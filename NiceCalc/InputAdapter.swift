@@ -8,18 +8,19 @@
 
 import Foundation
 
-class InputAdapter {
+class InputAdapter: InputProtocol {
     static let shared = InputAdapter()
     
     let brain = Brain.shared
     
-    func input(_ value: Int) {
-        // Conversion if needed
-        brain.input(value)
+    func enterNum(_ number: Int) {
+        brain.input(number)
     }
     
-    func input(operationTag: Int) {
-        switch operationTag {
+    func enterUtility(_ symbol: Int) {
+        switch symbol {
+        case 10 : brain.removeLastSymbol()
+        case 11 : brain.clearOutput()
         case Operation.pls.rawValue : input("+")
         case Operation.mns.rawValue : input("-")
         case Operation.mul.rawValue : input("×")
@@ -28,7 +29,7 @@ class InputAdapter {
         case Operation.sqrt.rawValue : input("√")
         case Operation.sin.rawValue : input("sin")
         case Operation.cos.rawValue : input("cos")
-        case Operation.log.rawValue : input("log")
+        case Operation.log.rawValue : input("ln")
         case Operation.leftBracket.rawValue : input("(")
         case Operation.rightBracket.rawValue : input(")")
         case Operation.pi.rawValue : brain.inputPi()
@@ -36,24 +37,10 @@ class InputAdapter {
         case Operation.dot.rawValue : brain.inputDot()
         default : break
         }
-
-    }
-    
-    func onServiseTap(tag: Int) {
-        switch tag {
-        case 10 : brain.removeLastSymbol()
-        case 11 : brain.clearOutput()
-        default: break
-        }
     }
     
     func input(_ operation: String) {
         brain.input(operation)
     }
-    
-    func input(operation: Operation) {
-        brain.input(operation: operation)
-    }
-    
 }
 

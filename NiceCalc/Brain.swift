@@ -8,10 +8,10 @@
 
 import Foundation
 
-class Brain/*: Model*/ {
+class Brain: Model {
     static let shared = Brain()
     let output = OutputAdapter.shared
-    var equation = "0"
+    var equation = ""
     var display = "0"
     var IsStartingNewEquation = true
     
@@ -27,102 +27,75 @@ class Brain/*: Model*/ {
         "ln": 4,
     ]
     
+    func needAMultiplySign() -> Bool {
+        let lastCharacter = display.characters.last!
+        return (lastCharacter >= "0" && lastCharacter <= "9") || lastCharacter == ")"
+    }
+    
+    func lastSymbolIsAnOperator() -> Bool {
+        let lastCharacter = display.characters.last!
+        return !(lastCharacter >= "0" && lastCharacter <= "9")
+    }
+    
+    func caseOfAction(_ char: String) -> Int {
+        if char == "^" || char == "√" || char == "×" || char == "÷" || char == "+" || char == "-" || char == "(" || char == ")" {
+            return 1    //need equation += " * "
+        }
+        else if char == "c" || char == "s"  {
+            return 2    //need equation += "*** "
+        }
+        else if char == "l" {
+            return 3    //need equation += "** "
+        }
+        else if char == "π" {
+            return 4    //π
+        }
+        else {
+            return 0    //need equation += "*"
+        }
+    }
+    
     func input(_ number: Int) {
         if IsStartingNewEquation {
-            equation = "\(number)"
             display = "\(number)"
         }
         else {
-            equation += "\(number)"
             display += "\(number)"
         }
         process()
     }
     
-//    func input(_ number: Int) {
-//        if !(equation == "0" || equation == "0.0") {
-//            equation += "\(number)"
-//            display += "\(number)"
-//        }
-//        else {
-//            equation = "\(number)"
-//            display = "\(number)"
-//        }
-//        process()
-//    }
-    
     func input(_ operation: String) {
-        equation += " " + operation + " "
         display += operation
         process()
     }
     
-    func EnterEquation(equation: String) {
-        self.equation = equation
-        process()
-    }
-    
-    func roundNumber(_ num: Double, places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return (num * divisor).rounded() / divisor
-    }
-    
     func inputPi() {
         if !IsStartingNewEquation {
-            if equation.characters.last == " " {
-                equation += "\(Double.pi) "
-                display += "π"
+            if needAMultiplySign() {
+                display += "×π"
             }
             else {
-                equation += " × \(Double.pi) "
-                display += "×π"
+                display += "π"
             }
         }
         else {
-            equation = "\(Double.pi) "
             display = "π"
         }
         process()
     }
     
-//    func inputPi() {
-//        if equation.characters.last == " " {
-//            equation += "\(roundNumber(Double.pi, places: 4)) "
-//            display += "\(roundNumber(Double.pi, places: 4))"
-//        }
-//        else {
-//            equation += " × \(roundNumber(Double.pi, places: 4)) "
-//            display += "×\(roundNumber(Double.pi, places: 4))"
-//        }
-//        process()
-//    }
-    
-//    func inputPi() {
-//        if equation.characters.last == " " {
-//            equation += "\(Double.pi) "
-//        display += "\(Double.pi)"
-//        }
-//        else {
-//        equation += " × \(Double.pi) "
-//        display += "×\(Double.pi)"
-//        }
-//        process()
-//    }
-    
     func inputDot() {
-        if equation.characters.last == " " {
-            equation += "0."
+        if lastSymbolIsAnOperator() {
             display += "0."
         }
         else {
-            equation += "."
             display += "."
         }
         process()
     }
     
     func clearOutput() {
-        equation = "0"
         display = "0"
         process()
         IsStartingNewEquation = true
@@ -130,58 +103,51 @@ class Brain/*: Model*/ {
     
     func removeLastSymbol() {
         if display.characters.count > 1 {
-            if equation.characters.removeLast() == " " {
-                if display.characters.removeLast() == "π" {
-                    equation = equation.components(separatedBy: " ").dropLast().joined(separator: " ") + " "
-                }
-                else {
-                    equation.characters.removeLast()
-                    equation.characters.removeLast()
-                }
-            }
-            else {
-                display.characters.removeLast()
-            }
-            process()
+            display.characters.removeLast()
         }
         else {
-            equation = "0"
             display = "0"
-            process()
             IsStartingNewEquation = true
         }
+        process()
     }
     
-    /*
-    func removeLastSymbol() {
-        if !(equation == "0.0" || equation == "") {
-            if equation.characters.count > 1 {
-                if equation.characters.removeLast() == " " {
-                    equation.characters.removeLast()
-                    equation.characters.removeLast()
-                }
-                display.characters.removeLast()
-            }
-            else {
-                equation = "0"
-                display = "0"
-            }
-            process()
-        }
+    func process() {
+        output.preseneqtResult(result: display)
+        IsStartingNewEquation = false
     }
-    */
     
     func equal() {
-        if equation != "" {
-            equation = String(CalculateResult())
-            display = equation
-            process()
-            IsStartingNewEquation = true
-        }
+        enterEquation(equation: display)
+        equation = String(calculateResult())
+        display = equation
+        equation = ""
+        process()
+        IsStartingNewEquation = true
+        
     }
     
-    func input(operation: Operation) {
-        
+    func enterEquation(equation: String) {
+        var example = equation
+        while example.characters.count > 0 {
+            let fisrtDisplaySymbol = String(example.characters.removeFirst())
+            let myCase = caseOfAction(fisrtDisplaySymbol)
+            switch myCase {
+            case 0:
+                self.equation += fisrtDisplaySymbol
+            case 1:
+                self.equation += " " + fisrtDisplaySymbol + " "
+            case 2:
+                self.equation += fisrtDisplaySymbol + String(example.characters.removeFirst()) + String(example.characters.removeFirst()) + " "
+            case 3:
+                self.equation += fisrtDisplaySymbol + String(example.characters.removeFirst()) + " "
+            case 4:
+                self.equation += String(Double.pi)
+            default:
+                break
+            }
+        }
+        process()
     }
     
     func toTokens(_ equationStr: String) -> [String] {
@@ -225,15 +191,8 @@ class Brain/*: Model*/ {
         }
         return (stackWithOperators + preficsNotation)// adding all operations that left in the stack
     }
-
     
-    func process() {
-        //if equation == "" || equation == "0.0"
-        output.output(value: display)
-        IsStartingNewEquation = false
-    }
-    
-    func CalculateResult() -> Double {
+    func calculateResult() -> Double {
         let equationInPNMode = toPolandNotation(tokens: toTokens(equation))
         var stack : [String] = [] // buffer for digit
         

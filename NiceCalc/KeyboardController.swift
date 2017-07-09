@@ -20,9 +20,5 @@ class KeyboardController: UIViewController {
     @IBAction func onOperatorTap(button: UIButton) {
         onUtilityTap?(button.tag)
     }
-    
-    @IBAction func onServiceTap(button: UIButton) {
-        onServiceTap?(button.tag)
-    }
 }
 

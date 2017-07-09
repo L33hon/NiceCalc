@@ -20,7 +20,6 @@ class DisplayController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         output.display = self
     }
 }

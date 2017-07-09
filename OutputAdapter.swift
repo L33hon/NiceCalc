@@ -8,12 +8,12 @@
 
 import Foundation
 
-class OutputAdapter {
+class OutputAdapter: OutputProtocol {
     static let shared = OutputAdapter()
     
     var display: DisplayController?
     
-    func output(value: String) {
-        display?.present(value: value)
+    func preseneqtResult(result: String) {
+        display?.present(value: result)
     }
 }

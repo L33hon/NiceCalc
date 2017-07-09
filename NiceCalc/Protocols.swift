@@ -8,21 +8,6 @@
 
 import Foundation
 
-/*
- protocol InputProtocol {
-    func input(value: Int)
-    func input(operation: Operation)
-}
-
-protocol OutputProtocol {
-    func output(value: String)
-}
-
-protocol Model {
-    func input(operation: Operation)
-}
-*/
-
 protocol InputProtocol {
     func enterNum(_ number: Int)
     func enterUtility(_ symbol: Int)
@@ -33,7 +18,7 @@ protocol OutputProtocol {
 }
 
 protocol Model {
-    func EnterEquation(equation: String)
+    func enterEquation(equation: String)
 }
 
 enum Operation: Int {
