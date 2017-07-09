@@ -54,6 +54,18 @@ class Brain/*: Model*/ {
         return (num * divisor).rounded() / divisor
     }
     
+    func inputPi() {
+        if equation.characters.last == " " {
+            equation += "\(Double.pi) "
+            display += "π"
+        }
+        else {
+            equation += " × \(Double.pi) "
+            display += "×π"
+        }
+        process()
+    }
+    
     /*
     func inputPi() {
         if equation.characters.last == " " {
@@ -68,6 +80,7 @@ class Brain/*: Model*/ {
     }
     */
     
+    /*
     func inputPi() {
         if equation.characters.last == " " {
             equation += "\(Double.pi) "
@@ -79,6 +92,7 @@ class Brain/*: Model*/ {
         }
         process()
     }
+    */
     
     func inputDot() {
         if equation.characters.last == " " {
@@ -99,6 +113,29 @@ class Brain/*: Model*/ {
     }
     
     func removeLastSymbol() {
+        if display.characters.count > 1 {
+            if equation.characters.removeLast() == " " {
+                if display.characters.removeLast() == "π" {
+                    equation = equation.components(separatedBy: " ").dropLast().joined(separator: " ") + " "
+                }
+                else {
+                    equation.characters.removeLast()
+                    equation.characters.removeLast()
+                }
+            }
+            else {
+                display.characters.removeLast()
+            }
+        }
+        else {
+            equation = "0"
+            display = "0"
+        }
+        process()
+    }
+    
+    /*
+    func removeLastSymbol() {
         if !(equation == "0.0" || equation == "") {
             if equation.characters.count > 1 {
                 if equation.characters.removeLast() == " " {
@@ -114,6 +151,7 @@ class Brain/*: Model*/ {
             process()
         }
     }
+    */
     
     func equal() {
         if equation != "" {
