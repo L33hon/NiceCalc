@@ -13,7 +13,7 @@ class OutputAdapter: OutputProtocol {
     
     var display: DisplayController?
     
-    func preseneqtResult(result: String) {
+    func presentResult(result: String) {
         display?.present(value: result)
     }
 }

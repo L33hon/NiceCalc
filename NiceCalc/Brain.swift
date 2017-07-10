@@ -113,7 +113,7 @@ class Brain: Model {
     }
     
     func process() {
-        output.preseneqtResult(result: display)
+        output.presentResult(result: display)
         IsStartingNewEquation = false
     }
     
