@@ -13,11 +13,29 @@ class Brain: Model {
     let output = OutputAdapter.shared
     var equation = ""
     var display = "0"
-    var IsStartingNewEquation = true
+    var isStartingNewEquation = true
+    var leftBracketsCount = 0
+    var rightBracketsCount = 0
+    
+    let isBinary = [
+        "^": true,
+        "√": false,
+        "×": true,
+        "÷": true,
+        "+": true,
+        "-": true,
+        "﹣": false,
+        "sin": false,
+        "cos": false,
+        "ln": false,
+        "(": false,
+        ")": false,
+    ]
     
     let operationPriorities = [
         "^": 4,
         "√": 5,
+        "﹣": 5,
         "×": 3,
         "÷": 3,
         "+": 2,
@@ -32,13 +50,13 @@ class Brain: Model {
         return (lastCharacter >= "0" && lastCharacter <= "9") || lastCharacter == ")"
     }
     
-    func lastSymbolIsAnOperator() -> Bool {
+    func lastSymbolIsANumber() -> Bool {
         let lastCharacter = display.characters.last!
-        return !(lastCharacter >= "0" && lastCharacter <= "9")
+        return lastCharacter >= "0" && lastCharacter <= "9"
     }
     
     func caseOfAction(_ char: String) -> Int {
-        if char == "^" || char == "√" || char == "×" || char == "÷" || char == "+" || char == "-" || char == "(" || char == ")" {
+        if char == "^" || char == "﹣" || char == "√" || char == "×" || char == "÷" || char == "+" || char == "-" || char == "(" || char == ")" {
             return 1    //need equation += " * "
         }
         else if char == "c" || char == "s"  {
@@ -56,24 +74,156 @@ class Brain: Model {
     }
     
     func input(_ number: Int) {
-        if IsStartingNewEquation {
+        if isStartingNewEquation {
             display = "\(number)"
         }
         else {
-            display += "\(number)"
+            if display.characters.last! == "π" {
+                display += " ÷ \(number)"
+            }
+            else {
+                display += "\(number)"
+            }
         }
         process()
     }
     
     func input(_ operation: String) {
-        display += operation
+        if isBinary[operation]! {
+            validatedBinaryInput(operation)
+        }
+        else {
+            validatedUnaryInput(operation)
+            process()
+        }
+    }
+    
+    func validatedBinaryInput(_ operation: String) {
+        if isStartingNewEquation {
+            if equation != "" {
+                display += " " + operation + " "
+                process()
+            }
+        }
+        else {
+            if display.characters.last == " " {
+                display.characters.removeLast()
+                display = display.components(separatedBy: " ").dropLast().joined(separator: " ") + " " + operation + " "
+                process()
+            }
+            else if display.characters.last == "." {
+                display.characters.removeLast()
+                display += " " + operation + " "
+                process()
+            }
+            else if lastSymbolIsANumber() || display.characters.last! == "π" {
+                display += " " + operation + " "
+                process()
+            }
+        }
+    }
+    
+    func validatedUnaryInput(_ operation: String) {
+        if isStartingNewEquation {
+            display = operation
+        }
+        else {
+            display += operation
+        }
+    }
+    
+//    func input(_ operation: String) {
+//        if isBinary[operation]! {
+//            display += " " + operation + " "
+//        }
+//        else {
+//            display += operation
+//        }
+//        process()
+//    }
+    
+    func inputMinus() {
+        if isStartingNewEquation {
+            if equation == "" {
+                display = "﹣"
+                process()
+            }
+            else {
+                display += " - "
+                process()
+            }
+        }
+        else {
+            let last = String(display.characters.last!)
+            if last == " " {
+                display.characters.removeLast()
+                display = display.components(separatedBy: " ").dropLast().joined(separator: " ") + " - "
+                process()
+            }
+            else if last == "." {
+                display.characters.removeLast()
+                display += " - "
+                process()
+            }
+            else if lastSymbolIsANumber() || last == "π" {
+                display += " - "
+                process()
+            }
+            else if last == "(" || last == "√" || last == "sin" || last == "cos" || last == "ln" {
+                display += "﹣"
+                process()
+            }
+        }
+    }
+    
+    func leftBracket() {
+        leftBracketsCount += 1
+        if isStartingNewEquation {
+            display = "("
+        }
+        else {
+            let char = String(display.characters.last!)
+            if char != " " {
+                if char == "." {
+                    display.characters.removeLast()
+                    display += " × ("
+                }
+                else if !lastSymbolIsANumber() {
+                    display += "("
+                }
+                else {
+                    display += " × ("
+                }
+            }
+            else {
+                display += "("
+            }
+        }
+        process()
+    }
+    
+    func rightBracket() {
+        if leftBracketsCount > rightBracketsCount {
+            let char = String(display.characters.last!)
+            if char != "(" {
+                if char == "π" || lastSymbolIsANumber() || char == ")" {
+                    display += ")"
+                    rightBracketsCount += 1
+                }
+                else if char == "." {
+                    display.characters.removeLast()
+                    display += ")"
+                    rightBracketsCount += 1
+                }
+            }
+        }
         process()
     }
     
     func inputPi() {
-        if !IsStartingNewEquation {
+        if !isStartingNewEquation {
             if needAMultiplySign() {
-                display += "×π"
+                display += " × π"
             }
             else {
                 display += "π"
@@ -86,48 +236,98 @@ class Brain: Model {
     }
     
     func inputDot() {
-        if lastSymbolIsAnOperator() {
-            display += "0."
+        if display.characters.last! != "π" {
+            if !lastSymbolIsANumber() && display.characters.last != "." {
+                display += "0."
+            }
+            else {
+                let number = display.components(separatedBy: " ").last!
+                if number.range(of: ".") == nil {
+                    display += "."
+                }
+            }
+            process()
+        }
+    }
+    
+    func containsANumber() -> Bool {
+        if display.characters.contains("0") ||
+            display.characters.contains("1") ||
+            display.characters.contains("2") ||
+            display.characters.contains("3") ||
+            display.characters.contains("4") ||
+            display.characters.contains("5") ||
+            display.characters.contains("6") ||
+            display.characters.contains("7") ||
+            display.characters.contains("8") ||
+            display.characters.contains("9") {
+            return true
         }
         else {
-            display += "."
+            return false
         }
-        process()
     }
     
     func clearOutput() {
         display = "0"
+        equation = ""
+        leftBracketsCount = 0
+        rightBracketsCount = 0
         process()
-        IsStartingNewEquation = true
+        isStartingNewEquation = true
     }
     
     func removeLastSymbol() {
         if display.characters.count > 1 {
-            display.characters.removeLast()
+            let char = display.characters.removeLast()
+            switch char {
+            case " ": display = display.components(separatedBy: " ").dropLast().joined(separator: " ")
+            case "(": leftBracketsCount -= 1
+            case ")": rightBracketsCount -= 1
+            default:
+                break
+            }
         }
         else {
             display = "0"
-            IsStartingNewEquation = true
+            isStartingNewEquation = true
         }
         process()
     }
     
     func process() {
         output.presentResult(result: display)
-        IsStartingNewEquation = false
+        isStartingNewEquation = false
     }
     
     func equal() {
-        enterEquation(equation: display)
-        equation = String(calculateResult())
-        display = equation
-        equation = ""
-        process()
-        IsStartingNewEquation = true
-        
+        if containsANumber() || display.characters.contains("π") {
+            while !lastSymbolIsANumber() && display.characters.last! != "π" {
+                if display.characters.last! == ")" {
+                    rightBracketsCount -= 1
+                }
+                if display.characters.last! == "(" {
+                    leftBracketsCount -= 1
+                }
+                display.characters.removeLast()
+            }
+            var neededBrackets = leftBracketsCount - rightBracketsCount
+            while neededBrackets > 0 {
+                neededBrackets -= 1
+                display += ")"
+            }
+            enterEquation(equation: display)
+            equation = calculateResult()
+            display = equation
+            process()
+            leftBracketsCount = 0
+            rightBracketsCount = 0
+            isStartingNewEquation = true
+        }
     }
     
     func enterEquation(equation: String) {
+        self.equation = ""
         var example = equation
         while example.characters.count > 0 {
             let fisrtDisplaySymbol = String(example.characters.removeFirst())
@@ -192,7 +392,7 @@ class Brain: Model {
         return (stackWithOperators + preficsNotation)// adding all operations that left in the stack
     }
     
-    func calculateResult() -> Double {
+    func calculateResult() -> String {
         let equationInPNMode = toPolandNotation(tokens: toTokens(equation))
         var stack : [String] = [] // buffer for digit
         
@@ -200,7 +400,7 @@ class Brain: Model {
             if Double(token) != nil {
                 stack += [token]
                 
-            } else if token == "sin" || token == "cos" || token == "ln" || token == "√"{
+            } else if token == "sin" || token == "﹣" || token == "cos" || token == "ln" || token == "√"{
                 let number = Double(stack.removeLast())
                 
                 switch token {
@@ -208,6 +408,7 @@ class Brain: Model {
                 case "cos": stack += [String(cos(number!))]
                 case "ln": stack += [String(log(number!))]
                 case "√": stack += [String(sqrt(number!))]
+                case "﹣" : stack += [String(-number!)]
                 default: break
                 }
             } else {
@@ -224,6 +425,12 @@ class Brain: Model {
                 }
             }
         }
-        return Double(stack.removeLast())!
+        let res = round(Double(stack.removeLast())! * pow(10, 10)) / pow(10, 10)
+        if res < 0 {
+            return "﹣\(-res)"
+        }
+        else {
+            return "\(res)"
+        }
     }
 }
