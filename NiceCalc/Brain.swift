@@ -23,8 +23,8 @@ class Brain: Model {
         "×": true,
         "÷": true,
         "+": true,
-        "-": true,
-        "﹣": false,
+        "﹣": true,
+        "-": false,
         "sin": false,
         "cos": false,
         "ln": false,
@@ -35,11 +35,11 @@ class Brain: Model {
     let operationPriorities = [
         "^": 4,
         "√": 5,
-        "﹣": 5,
+        "-": 5,
         "×": 3,
         "÷": 3,
         "+": 2,
-        "-": 2,
+        "﹣": 2,
         "sin": 5,
         "cos": 5,
         "ln": 4,
@@ -56,7 +56,7 @@ class Brain: Model {
     }
     
     func caseOfAction(_ char: String) -> Int {
-        if char == "^" || char == "﹣" || char == "√" || char == "×" || char == "÷" || char == "+" || char == "-" || char == "(" || char == ")" {
+        if char == "^" || char == "-" || char == "√" || char == "×" || char == "÷" || char == "+" || char == "﹣" || char == "(" || char == ")" {
             return 1    //need equation += " * "
         }
         else if char == "c" || char == "s"  {
@@ -116,7 +116,7 @@ class Brain: Model {
                 display += " " + operation + " "
                 process()
             }
-            else if lastSymbolIsANumber() || display.characters.last! == "π" {
+            else if lastSymbolIsANumber() || display.characters.last! == "π" || display.characters.last! == ")" {
                 display += " " + operation + " "
                 process()
             }
@@ -145,11 +145,11 @@ class Brain: Model {
     func inputMinus() {
         if isStartingNewEquation {
             if equation == "" {
-                display = "﹣"
+                display = "-"
                 process()
             }
             else {
-                display += " - "
+                display += " ﹣ "
                 process()
             }
         }
@@ -157,20 +157,20 @@ class Brain: Model {
             let last = String(display.characters.last!)
             if last == " " {
                 display.characters.removeLast()
-                display = display.components(separatedBy: " ").dropLast().joined(separator: " ") + " - "
+                display = display.components(separatedBy: " ").dropLast().joined(separator: " ") + " ﹣ "
                 process()
             }
             else if last == "." {
                 display.characters.removeLast()
-                display += " - "
+                display += " ﹣ "
                 process()
             }
-            else if lastSymbolIsANumber() || last == "π" {
-                display += " - "
+            else if lastSymbolIsANumber() || last == "π" || last == ")" {
+                display += " ﹣ "
                 process()
             }
             else if last == "(" || last == "√" || last == "sin" || last == "cos" || last == "ln" {
-                display += "﹣"
+                display += "-"
                 process()
             }
         }
@@ -400,7 +400,7 @@ class Brain: Model {
             if Double(token) != nil {
                 stack += [token]
                 
-            } else if token == "sin" || token == "﹣" || token == "cos" || token == "ln" || token == "√"{
+            } else if token == "sin" || token == "-" || token == "cos" || token == "ln" || token == "√"{
                 let number = Double(stack.removeLast())
                 
                 switch token {
@@ -408,7 +408,7 @@ class Brain: Model {
                 case "cos": stack += [String(cos(number!))]
                 case "ln": stack += [String(log(number!))]
                 case "√": stack += [String(sqrt(number!))]
-                case "﹣" : stack += [String(-number!)]
+                case "-" : stack += [String(-number!)]
                 default: break
                 }
             } else {
@@ -417,7 +417,7 @@ class Brain: Model {
                 
                 switch token {
                 case "+": stack += [String(firstNumber! + secondNumber!)]
-                case "-": stack += [String(firstNumber! - secondNumber!)]
+                case "﹣": stack += [String(firstNumber! - secondNumber!)]
                 case "÷": stack += [String(firstNumber! / secondNumber!)]
                 case "×": stack += [String(firstNumber! * secondNumber!)]
                 case "^": stack += [String(pow(firstNumber!,secondNumber!))]
@@ -427,7 +427,7 @@ class Brain: Model {
         }
         let res = round(Double(stack.removeLast())! * pow(10, 10)) / pow(10, 10)
         if res < 0 {
-            return "﹣\(-res)"
+            return "-\(-res)"
         }
         else {
             return "\(res)"
