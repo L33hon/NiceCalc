@@ -52,8 +52,8 @@ class Brain: Model {
     ]
     
     func needAMultiplySign() -> Bool {
-        let lastCharacter = display.characters.last!
-        return (lastCharacter >= "0" && lastCharacter <= "9") || lastCharacter == ")"
+        let last = display.characters.last!
+        return (last >= "0" && last <= "9") || last == ")" || last == "π"
     }
     
     func lastSymbolIsANumber() -> Bool {
@@ -134,19 +134,19 @@ class Brain: Model {
             display = operation
         }
         else {
-            display += operation
+            let char = display.characters.last!
+            if lastSymbolIsANumber() || char == "π" {
+                display += " × " + operation
+            }
+            else if char == "." {
+                display.characters.removeLast()
+                display += " × " + operation
+            }
+            else {
+                display += operation
+            }
         }
     }
-    
-//    func input(_ operation: String) {
-//        if isBinary[operation]! {
-//            display += " " + operation + " "
-//        }
-//        else {
-//            display += operation
-//        }
-//        process()
-//    }
     
     func inputMinus() {
         if isStartingNewEquation {
@@ -414,7 +414,7 @@ class Brain: Model {
                 case "cos": stack += [String(cos(number!))]
                 case "ln": stack += [String(log(number!))]
                 case "√": stack += [String(sqrt(number!))]
-                case "-" : stack += [String(-number!)]
+                case "-" : stack += [String(number! * (-1))]
                 default: break
                 }
             } else {
@@ -432,9 +432,8 @@ class Brain: Model {
             }
         }
         let res = round(Double(stack.removeLast())! * pow(10, 10)) / pow(10, 10)
-        if res < 0 {
-            
-            return "-" + (-res).cleanValue
+        if res == -res {
+            return "0"
         }
         else {
             return res.cleanValue

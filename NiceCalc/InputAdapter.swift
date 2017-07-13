@@ -39,28 +39,6 @@ class InputAdapter: InputProtocol {
         }
     }
     
-//    func enterUtility(_ symbol: Int) {
-//        switch symbol {
-//        case 10017 : brain.removeLastSymbol()
-//        case Operation.clear.rawValue : brain.clearOutput()
-//        case Operation.pls.rawValue : input("+")
-//        case Operation.mns.rawValue : brain.inputMinus()
-//        case Operation.mul.rawValue : input("×")
-//        case Operation.div.rawValue : input("÷")
-//        case Operation.pow.rawValue : input("^")
-//        case Operation.sqrt.rawValue : input("√")
-//        case Operation.sin.rawValue : input("sin")
-//        case Operation.cos.rawValue : input("cos")
-//        case Operation.log.rawValue : input("ln")
-//        case Operation.leftBracket.rawValue : brain.leftBracket()
-//        case Operation.rightBracket.rawValue : brain.rightBracket()
-//        case Operation.pi.rawValue : brain.inputPi()
-//        case Operation.equal.rawValue : brain.equal()
-//        case Operation.dot.rawValue : brain.inputDot()
-//        default : break
-//        }
-//    }
-    
     func input(_ operation: String) {
         brain.input(operation)
     }
