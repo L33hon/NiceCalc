@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613B14F21F179ED10053D695 /* NiceCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B14F11F179ED10053D695 /* NiceCalcTests.swift */; };
 		61A7BAB81F093FC9006414D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7BAB71F093FC9006414D6 /* AppDelegate.swift */; };
 		61A7BABA1F093FC9006414D6 /* KeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7BAB91F093FC9006414D6 /* KeyboardController.swift */; };
 		61A7BABD1F093FC9006414D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A7BABB1F093FC9006414D6 /* Main.storyboard */; };
@@ -20,7 +21,20 @@
 		61D24D4C1F0A3F2D00B932D7 /* OutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24D4B1F0A3F2D00B932D7 /* OutputAdapter.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		613B14F41F179ED10053D695 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 61A7BAAC1F093FC9006414D6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 61A7BAB31F093FC9006414D6;
+			remoteInfo = NiceCalc;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		613B14EF1F179ED10053D695 /* NiceCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NiceCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		613B14F11F179ED10053D695 /* NiceCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceCalcTests.swift; sourceTree = "<group>"; };
+		613B14F31F179ED10053D695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61A7BAB41F093FC9006414D6 /* NiceCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiceCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A7BAB71F093FC9006414D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61A7BAB91F093FC9006414D6 /* KeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardController.swift; sourceTree = "<group>"; };
@@ -37,6 +51,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		613B14EC1F179ED10053D695 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61A7BAB11F093FC9006414D6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -47,6 +68,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		613B14F01F179ED10053D695 /* NiceCalcTests */ = {
+			isa = PBXGroup;
+			children = (
+				613B14F11F179ED10053D695 /* NiceCalcTests.swift */,
+				613B14F31F179ED10053D695 /* Info.plist */,
+			);
+			path = NiceCalcTests;
+			sourceTree = SOURCE_ROOT;
+		};
 		61A7BAAB1F093FC9006414D6 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				61A7BAB41F093FC9006414D6 /* NiceCalc.app */,
+				613B14EF1F179ED10053D695 /* NiceCalcTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -69,6 +100,7 @@
 				61A7BAC91F094065006414D6 /* Supporting Files */,
 				61A7BACC1F095819006414D6 /* Model */,
 				61A7BACD1F095836006414D6 /* Controllers */,
+				613B14F01F179ED10053D695 /* NiceCalcTests */,
 				61A7BABB1F093FC9006414D6 /* Main.storyboard */,
 			);
 			path = NiceCalc;
@@ -109,6 +141,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		613B14EE1F179ED10053D695 /* NiceCalcTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 613B14F61F179ED10053D695 /* Build configuration list for PBXNativeTarget "NiceCalcTests" */;
+			buildPhases = (
+				613B14EB1F179ED10053D695 /* Sources */,
+				613B14EC1F179ED10053D695 /* Frameworks */,
+				613B14ED1F179ED10053D695 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				613B14F51F179ED10053D695 /* PBXTargetDependency */,
+			);
+			name = NiceCalcTests;
+			productName = NiceCalcTests;
+			productReference = 613B14EF1F179ED10053D695 /* NiceCalcTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		61A7BAB31F093FC9006414D6 /* NiceCalc */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 61A7BAC61F093FC9006414D6 /* Build configuration list for PBXNativeTarget "NiceCalc" */;
@@ -136,6 +186,11 @@
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Yaroslav Luchyt";
 				TargetAttributes = {
+					613B14EE1F179ED10053D695 = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 61A7BAB31F093FC9006414D6;
+					};
 					61A7BAB31F093FC9006414D6 = {
 						CreatedOnToolsVersion = 8.3.3;
 						ProvisioningStyle = Automatic;
@@ -156,11 +211,19 @@
 			projectRoot = "";
 			targets = (
 				61A7BAB31F093FC9006414D6 /* NiceCalc */,
+				613B14EE1F179ED10053D695 /* NiceCalcTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		613B14ED1F179ED10053D695 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61A7BAB21F093FC9006414D6 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,6 +237,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		613B14EB1F179ED10053D695 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				613B14F21F179ED10053D695 /* NiceCalcTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		61A7BAB01F093FC9006414D6 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -190,6 +261,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		613B14F51F179ED10053D695 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 61A7BAB31F093FC9006414D6 /* NiceCalc */;
+			targetProxy = 613B14F41F179ED10053D695 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		61A7BABB1F093FC9006414D6 /* Main.storyboard */ = {
@@ -211,6 +290,32 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		613B14F71F179ED10053D695 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NiceCalcTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.NiceCalcTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NiceCalc.app/NiceCalc";
+			};
+			name = Debug;
+		};
+		613B14F81F179ED10053D695 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NiceCalcTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Academy.NiceCalcTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NiceCalc.app/NiceCalc";
+			};
+			name = Release;
+		};
 		61A7BAC41F093FC9006414D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -333,6 +438,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		613B14F61F179ED10053D695 /* Build configuration list for PBXNativeTarget "NiceCalcTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				613B14F71F179ED10053D695 /* Debug */,
+				613B14F81F179ED10053D695 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		61A7BAAF1F093FC9006414D6 /* Build configuration list for PBXProject "NiceCalc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -8,6 +8,12 @@
 
 import Foundation
 
+extension Double {
+    var cleanValue: String {
+        return self.truncatingRemainder(dividingBy: 1) == 0 ? String(format: "%.0f", self) : String(self)
+    }
+}
+
 class Brain: Model {
     static let shared = Brain()
     let output = OutputAdapter.shared
@@ -427,10 +433,11 @@ class Brain: Model {
         }
         let res = round(Double(stack.removeLast())! * pow(10, 10)) / pow(10, 10)
         if res < 0 {
-            return "-\(-res)"
+            
+            return "-" + (-res).cleanValue
         }
         else {
-            return "\(res)"
+            return res.cleanValue
         }
     }
 }

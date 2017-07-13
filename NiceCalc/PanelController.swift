@@ -14,6 +14,11 @@ class PanelController: UIViewController {
     var keyboard: KeyboardController!
     let inputAdapter = InputAdapter.shared
     
+    func onUtilityTap(symbol: Int) {
+        let op = Operation(rawValue: symbol)
+        inputAdapter.enterUtility(op!)
+    }
+    
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -26,8 +31,8 @@ class PanelController: UIViewController {
             keyboard.onNumTap = { [weak self] num in
                 self?.inputAdapter.enterNum(num)
             }
-            keyboard.onUtilityTap = { [weak self] tag in
-                self?.inputAdapter.enterUtility(tag)
+            keyboard.onUtilityTap = { [weak self] symbol in
+                self?.onUtilityTap(symbol: symbol)
             }
         }
     }

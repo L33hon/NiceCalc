@@ -10,7 +10,7 @@ import Foundation
 
 protocol InputProtocol {
     func enterNum(_ number: Int)
-    func enterUtility(_ symbol: Int)
+    func enterUtility(_ symbol: Operation)
 }
 
 protocol OutputProtocol {
@@ -38,4 +38,5 @@ enum Operation: Int {
     case clear = 10014
     case dot = 10015
     case sign = 10016
+    case erase = 10017
 }
