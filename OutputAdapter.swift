@@ -11,9 +11,9 @@ import Foundation
 class OutputAdapter: OutputProtocol {
     static let shared = OutputAdapter()
     
-    var display: DisplayController?
+    var resultDisplay: ((String)->())?
     
     func presentResult(result: String) {
-        display?.present(value: result)
+        resultDisplay?(result)
     }
 }

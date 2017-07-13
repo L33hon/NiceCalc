@@ -14,12 +14,14 @@ class DisplayController: UIViewController {
     
     let output = OutputAdapter.shared
     
-    func present(value: String) {
+    func present(_ value: String) {
         display.text = value
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        output.display = self
+        output.resultDisplay = { [weak self] display in
+            self?.present(display)
+        }
     }
 }

@@ -20,7 +20,7 @@ class InputAdapter: InputProtocol {
     func enterUtility(_ symbol: Int) {
         switch symbol {
         case 10 : brain.removeLastSymbol()
-        case 11 : brain.clearOutput()
+        case Operation.clear.rawValue : brain.clearOutput()
         case Operation.pls.rawValue : input("+")
         case Operation.mns.rawValue : brain.inputMinus()
         case Operation.mul.rawValue : input("×")
