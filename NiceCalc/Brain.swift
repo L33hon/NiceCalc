@@ -301,11 +301,10 @@ class Brain: Model {
                     let indexForThirdLast = display.index(display.startIndex, offsetBy: display.characters.count - 2)
                     display = display.substring(to: indexForThirdLast)
                 }
-            case "s": let indexForThirdLast = display.index(display.startIndex, offsetBy: display.characters.count - 2);
+            case "s": let indexForThirdLast = display.index(display.startIndex, offsetBy: display.characters.count - 2)
                 display = display.substring(to: indexForThirdLast)
-            case "f": let indexForThirdLast = display.index(display.startIndex, offsetBy: display.characters.count - 2);
+            case "f": let indexForThirdLast = display.index(display.startIndex, offsetBy: display.characters.count - 2)
                 display = display.substring(to: indexForThirdLast)
-            case "n" where display.characters.last! == "l": display.characters.removeLast()
             default:
                 break
             }
