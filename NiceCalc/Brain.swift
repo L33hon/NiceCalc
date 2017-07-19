@@ -228,7 +228,10 @@ class Brain: Model {
     
     func inputPi() {
         if !isStartingNewEquation {
-            if needAMultiplySign() {
+            if needAMultiplySign() || display.characters.last! == "." {
+                if display.characters.last! == "." {
+                    display.characters.removeLast()
+                }
                 display += " × π"
             }
             else {
@@ -290,21 +293,47 @@ class Brain: Model {
             case " ": display = display.components(separatedBy: " ").dropLast().joined(separator: " ")
             case "(": leftBracketsCount -= 1
             case ")": rightBracketsCount -= 1
+            case "n":
+                if display.characters.last! == "l" {
+                    display.characters.removeLast()
+                }
+                else {
+                    let indexForThirdLast = display.index(display.startIndex, offsetBy: display.characters.count - 2)
+                    display = display.substring(to: indexForThirdLast)
+                }
+            case "s": let indexForThirdLast = display.index(display.startIndex, offsetBy: display.characters.count - 2);
+                display = display.substring(to: indexForThirdLast)
+            case "f": let indexForThirdLast = display.index(display.startIndex, offsetBy: display.characters.count - 2);
+                display = display.substring(to: indexForThirdLast)
+            case "n" where display.characters.last! == "l": display.characters.removeLast()
             default:
                 break
+            }
+            if display.characters.count == 0 {
+                display = "0"
+                process()
+                isStartingNewEquation = true
+            }
+            else {
+                process()
             }
         }
         else {
             display = "0"
+            process()
             isStartingNewEquation = true
         }
-        process()
     }
     
     func process() {
         output.presentResult(result: display)
         isStartingNewEquation = false
     }
+    
+//    func processWithZero() {
+//        isStartingNewEquation = true
+//        process()
+//    }
     
     func equal() {
         if containsANumber() || display.characters.contains("π") {
@@ -328,6 +357,9 @@ class Brain: Model {
             process()
             leftBracketsCount = 0
             rightBracketsCount = 0
+            if equation == "inf", equation == "-inf", equation == "nan" {
+                equation = ""
+            }
             isStartingNewEquation = true
         }
     }
