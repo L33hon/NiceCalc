@@ -11,10 +11,14 @@ import UIKit
 class DisplayController: UIViewController {
 
     @IBOutlet  var display: UILabel!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     let output = OutputAdapter.shared
     
     func present(_ value: String) {
+        if display.text!.characters.count < value.characters.count {
+            scrollView.scrollRectToVisible(display.bounds, animated: true)
+        }
         display.text = value
     }
     
@@ -23,5 +27,6 @@ class DisplayController: UIViewController {
         output.resultDisplay = { [weak self] display in
             self?.present(display)
         }
+        
     }
 }
