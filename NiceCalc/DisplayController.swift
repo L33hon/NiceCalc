@@ -10,23 +10,22 @@ import UIKit
 
 class DisplayController: UIViewController {
 
-    @IBOutlet  var display: UILabel!
-    @IBOutlet weak var scrollView: UIScrollView!
+  @IBOutlet  var display: UILabel!
+  @IBOutlet weak var scrollView: UIScrollView!
     
-    let output = OutputAdapter.shared
+  let output = OutputAdapter.shared
     
-    func present(_ value: String) {
-        if display.text!.characters.count < value.characters.count {
-            scrollView.scrollRectToVisible(display.bounds, animated: true)
-        }
-        display.text = value
+  internal func present(_ value: String) {
+    if display.text!.characters.count < value.characters.count {
+      scrollView.scrollRectToVisible(display.bounds, animated: true)
     }
+    display.text = value
+  }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        output.resultDisplay = { [weak self] display in
-            self?.present(display)
-        }
-        
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    output.resultDisplay = { [weak self] display in
+      self?.present(display)
     }
+  }
 }

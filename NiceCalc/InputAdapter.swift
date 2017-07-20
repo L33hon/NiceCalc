@@ -9,38 +9,37 @@
 import Foundation
 
 class InputAdapter: InputProtocol {
-    static let shared = InputAdapter()
+  static let shared = InputAdapter()
     
-    let brain = Brain.shared
+  private let brain = Brain.shared
     
-    func enterNum(_ number: Int) {
-        brain.input(number)
+  internal func enterNum(_ number: Int) {
+    brain.input(number)
+  }
+    
+  internal func enterUtility(_ symbol: Operation) {
+    switch symbol {
+      case .pls : input("+")
+      case .mns : brain.inputMinus()
+      case .mul : input("×")
+      case .div : input("÷")
+      case .pow : input("^")
+      case .sqrt : input("√")
+      case .sin : input("sin")
+      case .cos : input("cos")
+      case .log : input("ln")
+      case .leftBracket : brain.leftBracket()
+      case .rightBracket : brain.rightBracket()
+      case .pi : brain.inputPi()
+      case .equal : brain.equal()
+      case .dot : brain.inputDot()
+      case .clear : brain.clearOutput()
+      case .erase : brain.removeLastSymbol()
+      default: break
     }
+  }
     
-    func enterUtility(_ symbol: Operation) {
-        switch symbol {
-        case .pls : input("+")
-        case .mns : brain.inputMinus()
-        case .mul : input("×")
-        case .div : input("÷")
-        case .pow : input("^")
-        case .sqrt : input("√")
-        case .sin : input("sin")
-        case .cos : input("cos")
-        case .log : input("ln")
-        case .leftBracket : brain.leftBracket()
-        case .rightBracket : brain.rightBracket()
-        case .pi : brain.inputPi()
-        case .equal : brain.equal()
-        case .dot : brain.inputDot()
-        case .clear : brain.clearOutput()
-        case .erase : brain.removeLastSymbol()
-        default: break
-        }
-    }
-    
-    func input(_ operation: String) {
-        brain.input(operation)
-    }
+  private func input(_ operation: String) {
+    brain.input(operation)
+  }
 }
-

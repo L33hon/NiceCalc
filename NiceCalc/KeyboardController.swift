@@ -9,16 +9,16 @@
 import UIKit
 
 class KeyboardController: UIViewController {
-    var onNumTap: ((_ num: Int)->())?
-    var onUtilityTap: ((_ symbol: Int)->())?
-    var onServiceTap: ((_ keyIndex: Int)->())?
+  var onNumTap: ((_ num: Int)->())?
+  var onUtilityTap: ((_ symbol: Int)->())?
+  var onServiceTap: ((_ keyIndex: Int)->())?
     
-    @IBAction func onNumericTap(button: UIButton) {
-        onNumTap?(button.tag)
-    }
+  @IBAction func onNumericTap(button: UIButton) {
+    onNumTap?(button.tag)
+  }
     
-    @IBAction func onOperatorTap(button: UIButton) {
-        onUtilityTap?(button.tag)
-    }
+  @IBAction func onOperatorTap(button: UIButton) {
+    onUtilityTap?(button.tag)
+  }
 }
 
