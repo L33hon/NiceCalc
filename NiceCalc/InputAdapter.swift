@@ -34,7 +34,7 @@ class InputAdapter: InputProtocol {
       case .equal : brain.equal()
       case .dot : brain.inputDot()
       case .clear : brain.clearOutput()
-      case .erase : brain.removeLastSymbol()
+      case .clearS : brain.removeLastSymbol()
       default: break
     }
   }

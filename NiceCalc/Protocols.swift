@@ -38,5 +38,12 @@ enum Operation: Int {
   case clear = 10014
   case dot = 10015
   case sign = 10016
-  case erase = 10017
+  case per = 10017
+  case e = 10018
+  case tan = 10019
+  case factor = 10020
+  case log10 = 10021
+  case exp = 10022
+  case ctg = 10023
+  case clearS = 10024
 }
