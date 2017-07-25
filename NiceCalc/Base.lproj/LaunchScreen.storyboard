@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,34 +20,11 @@
                         <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchImage" translatesAutoresizingMaskIntoConstraints="NO" id="7WI-ck-wj5">
-                                <rect key="frame" x="0.0" y="33.5" width="375" height="600"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="279" id="GnL-3s-OQ4"/>
-                                    <constraint firstAttribute="height" constant="600" id="N07-4k-uoQ"/>
-                                    <constraint firstAttribute="width" constant="375" id="vc0-K8-Hlb"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="GnL-3s-OQ4"/>
-                                        <exclude reference="N07-4k-uoQ"/>
-                                        <exclude reference="vc0-K8-Hlb"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="GnL-3s-OQ4"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular">
-                                    <mask key="constraints">
-                                        <include reference="N07-4k-uoQ"/>
-                                        <include reference="vc0-K8-Hlb"/>
-                                    </mask>
-                                </variation>
+                                <rect key="frame" x="220.66666666666663" y="0.0" width="294.66666666666674" height="414"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.9552733302116394" green="0.95794421434402466" blue="0.98803669214248657" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -54,29 +32,38 @@
                             <constraint firstItem="7WI-ck-wj5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="6Fv-T1-Twv"/>
                             <constraint firstItem="7WI-ck-wj5" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="-20" id="9gj-lZ-jOH"/>
                             <constraint firstItem="7WI-ck-wj5" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="E1p-wm-jSr"/>
+                            <constraint firstItem="7WI-ck-wj5" firstAttribute="width" secondItem="Ze5-6b-2t3" secondAttribute="width" multiplier="0.4" id="FI8-Eu-wTs"/>
                             <constraint firstItem="7WI-ck-wj5" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="OYK-Bq-boX"/>
                             <constraint firstItem="7WI-ck-wj5" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" constant="7.5" id="WvQ-W3-Hik">
                                 <variation key="heightClass=compact" constant="0.0"/>
                             </constraint>
                             <constraint firstItem="7WI-ck-wj5" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="j0d-QO-aaI"/>
+                            <constraint firstItem="7WI-ck-wj5" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" id="mK6-J6-DCS"/>
+                            <constraint firstItem="7WI-ck-wj5" firstAttribute="height" secondItem="Ze5-6b-2t3" secondAttribute="height" multiplier="0.9" id="sqO-gU-9jq"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
                                 <exclude reference="9gj-lZ-jOH"/>
+                                <exclude reference="FI8-Eu-wTs"/>
                                 <exclude reference="WvQ-W3-Hik"/>
+                                <exclude reference="mK6-J6-DCS"/>
+                                <exclude reference="sqO-gU-9jq"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
                                 <exclude reference="6Fv-T1-Twv"/>
                                 <include reference="9gj-lZ-jOH"/>
+                                <include reference="FI8-Eu-wTs"/>
                                 <include reference="WvQ-W3-Hik"/>
                                 <exclude reference="j0d-QO-aaI"/>
+                                <include reference="mK6-J6-DCS"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular">
                             <mask key="constraints">
                                 <exclude reference="E1p-wm-jSr"/>
+                                <include reference="sqO-gU-9jq"/>
                             </mask>
                         </variation>
                     </view>
