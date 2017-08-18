@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		613B14F21F179ED10053D695 /* NiceCalcTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613B14F11F179ED10053D695 /* NiceCalcTests.swift */; };
+		6149284B1F46DB630005EB21 /* OutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149284A1F46DB630005EB21 /* OutputAdapter.swift */; };
+		6149284D1F46EC240005EB21 /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6149284C1F46EC240005EB21 /* RoundButton.swift */; };
 		61A7BAB81F093FC9006414D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7BAB71F093FC9006414D6 /* AppDelegate.swift */; };
 		61A7BABA1F093FC9006414D6 /* KeyboardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7BAB91F093FC9006414D6 /* KeyboardController.swift */; };
 		61A7BABD1F093FC9006414D6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61A7BABB1F093FC9006414D6 /* Main.storyboard */; };
@@ -18,7 +20,6 @@
 		61D24D461F0A3E4F00B932D7 /* DisplayController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24D451F0A3E4F00B932D7 /* DisplayController.swift */; };
 		61D24D481F0A3EDB00B932D7 /* InputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24D471F0A3EDB00B932D7 /* InputAdapter.swift */; };
 		61D24D4A1F0A3F0800B932D7 /* Brain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24D491F0A3F0800B932D7 /* Brain.swift */; };
-		61D24D4C1F0A3F2D00B932D7 /* OutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D24D4B1F0A3F2D00B932D7 /* OutputAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,8 @@
 		613B14EF1F179ED10053D695 /* NiceCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NiceCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		613B14F11F179ED10053D695 /* NiceCalcTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NiceCalcTests.swift; sourceTree = "<group>"; };
 		613B14F31F179ED10053D695 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6149284A1F46DB630005EB21 /* OutputAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OutputAdapter.swift; sourceTree = "<group>"; };
+		6149284C1F46EC240005EB21 /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		61A7BAB41F093FC9006414D6 /* NiceCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NiceCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61A7BAB71F093FC9006414D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61A7BAB91F093FC9006414D6 /* KeyboardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardController.swift; sourceTree = "<group>"; };
@@ -47,7 +50,6 @@
 		61D24D451F0A3E4F00B932D7 /* DisplayController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayController.swift; sourceTree = "<group>"; };
 		61D24D471F0A3EDB00B932D7 /* InputAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputAdapter.swift; sourceTree = "<group>"; };
 		61D24D491F0A3F0800B932D7 /* Brain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brain.swift; sourceTree = "<group>"; };
-		61D24D4B1F0A3F2D00B932D7 /* OutputAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OutputAdapter.swift; path = ../OutputAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				61A7BACD1F095836006414D6 /* Controllers */,
 				613B14F01F179ED10053D695 /* NiceCalcTests */,
 				61A7BABB1F093FC9006414D6 /* Main.storyboard */,
+				6149284C1F46EC240005EB21 /* RoundButton.swift */,
 			);
 			path = NiceCalc;
 			sourceTree = "<group>";
@@ -123,7 +126,7 @@
 				61A7BACA1F094FC5006414D6 /* Protocols.swift */,
 				61D24D491F0A3F0800B932D7 /* Brain.swift */,
 				61D24D471F0A3EDB00B932D7 /* InputAdapter.swift */,
-				61D24D4B1F0A3F2D00B932D7 /* OutputAdapter.swift */,
+				6149284A1F46DB630005EB21 /* OutputAdapter.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -249,7 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61D24D4C1F0A3F2D00B932D7 /* OutputAdapter.swift in Sources */,
+				6149284D1F46EC240005EB21 /* RoundButton.swift in Sources */,
 				61D24D481F0A3EDB00B932D7 /* InputAdapter.swift in Sources */,
 				61A7BACB1F094FC5006414D6 /* Protocols.swift in Sources */,
 				61D24D461F0A3E4F00B932D7 /* DisplayController.swift in Sources */,
@@ -257,6 +260,7 @@
 				61D24D4A1F0A3F0800B932D7 /* Brain.swift in Sources */,
 				61A7BABA1F093FC9006414D6 /* KeyboardController.swift in Sources */,
 				61A7BAB81F093FC9006414D6 /* AppDelegate.swift in Sources */,
+				6149284B1F46DB630005EB21 /* OutputAdapter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -445,6 +449,7 @@
 				613B14F81F179ED10053D695 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		61A7BAAF1F093FC9006414D6 /* Build configuration list for PBXProject "NiceCalc" */ = {
 			isa = XCConfigurationList;

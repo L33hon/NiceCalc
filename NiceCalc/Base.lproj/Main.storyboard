@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="dVt-lX-nWp">
-    <device id="retina5_5" orientation="portrait">
+    <device id="retina5_5" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -19,31 +19,20 @@
                         <viewControllerLayoutGuide type="bottom" id="dY7-bA-k2c"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="WZ6-ns-vK9">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GwU-Ia-Lzg">
-                                <rect key="frame" x="0.0" y="20" width="414" height="716"/>
-                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.5" contentMode="center" id="d9e-X9-188">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="716"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="nkv-aQ-5Lk">
-                                            <rect key="frame" x="0.0" y="0.0" width="736" height="394"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                    </subviews>
-                                </view>
-                                <blurEffect style="dark"/>
-                            </visualEffectView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backGround" translatesAutoresizingMaskIntoConstraints="NO" id="nkv-aQ-5Lk">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
+                            </imageView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S0f-IO-Ua3">
-                                <rect key="frame" x="0.0" y="20" width="414" height="147.33333333333334"/>
+                                <rect key="frame" x="0.0" y="20" width="736" height="82.666666666666671"/>
                                 <connections>
                                     <segue destination="mFA-xP-xlw" kind="embed" identifier="DisplayControllerSegue" id="4hl-EV-2io"/>
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gfk-IG-nmB">
-                                <rect key="frame" x="0.0" y="167.33333333333331" width="414" height="568.66666666666674"/>
+                                <rect key="frame" x="0.0" y="102.66666666666666" width="736" height="311.33333333333337"/>
                                 <connections>
                                     <segue destination="7P0-PI-dw0" kind="embed" identifier="KeyboardControllerSegue" id="YQX-Jw-BwC"/>
                                 </connections>
@@ -52,25 +41,25 @@
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="S0f-IO-Ua3" secondAttribute="trailing" id="1W8-PX-8wk"/>
-                            <constraint firstAttribute="trailing" secondItem="GwU-Ia-Lzg" secondAttribute="trailing" id="1hm-vj-xbU"/>
-                            <constraint firstItem="dY7-bA-k2c" firstAttribute="top" secondItem="GwU-Ia-Lzg" secondAttribute="bottom" id="35D-Cn-EA3"/>
-                            <constraint firstItem="GwU-Ia-Lzg" firstAttribute="leading" secondItem="WZ6-ns-vK9" secondAttribute="leading" id="K7M-QU-FOJ"/>
+                            <constraint firstItem="nkv-aQ-5Lk" firstAttribute="top" secondItem="WZ6-ns-vK9" secondAttribute="top" id="6C3-FJ-THr"/>
+                            <constraint firstItem="dY7-bA-k2c" firstAttribute="top" secondItem="nkv-aQ-5Lk" secondAttribute="bottom" id="J5D-BL-Jei"/>
                             <constraint firstItem="gfk-IG-nmB" firstAttribute="leading" secondItem="WZ6-ns-vK9" secondAttribute="leading" id="LkD-fd-vFM"/>
                             <constraint firstItem="S0f-IO-Ua3" firstAttribute="leading" secondItem="WZ6-ns-vK9" secondAttribute="leading" id="N1Z-Aj-OJa"/>
                             <constraint firstItem="dY7-bA-k2c" firstAttribute="top" secondItem="gfk-IG-nmB" secondAttribute="bottom" id="Px6-Os-OiN"/>
                             <constraint firstAttribute="trailing" secondItem="gfk-IG-nmB" secondAttribute="trailing" id="bX4-Th-B1W"/>
                             <constraint firstItem="gfk-IG-nmB" firstAttribute="top" secondItem="S0f-IO-Ua3" secondAttribute="bottom" id="cME-nW-bpd"/>
+                            <constraint firstItem="nkv-aQ-5Lk" firstAttribute="leading" secondItem="WZ6-ns-vK9" secondAttribute="leading" id="dMl-or-nxD"/>
                             <constraint firstItem="gfk-IG-nmB" firstAttribute="top" secondItem="S0f-IO-Ua3" secondAttribute="bottom" id="fR8-6y-ytD"/>
+                            <constraint firstAttribute="trailing" secondItem="nkv-aQ-5Lk" secondAttribute="trailing" id="gKm-qx-4zt"/>
                             <constraint firstItem="S0f-IO-Ua3" firstAttribute="height" secondItem="WZ6-ns-vK9" secondAttribute="height" multiplier="0.2" id="jNo-qh-Yrl"/>
                             <constraint firstItem="S0f-IO-Ua3" firstAttribute="top" secondItem="imd-y2-DfT" secondAttribute="bottom" id="rLc-sC-yuq"/>
-                            <constraint firstItem="GwU-Ia-Lzg" firstAttribute="top" secondItem="imd-y2-DfT" secondAttribute="bottom" id="tj7-uA-dXt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="pQJ-zm-utc"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6gu-Zy-rgT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="123.91304347826087" y="59.420289855072468"/>
+            <point key="canvasLocation" x="124.6376811594203" y="59.510869565217398"/>
         </scene>
         <!--Display Controller-->
         <scene sceneID="ejK-sC-2t4">
@@ -81,17 +70,17 @@
                         <viewControllerLayoutGuide type="bottom" id="L2Q-rq-MMz"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1DW-aK-Las">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="147.33333333333334"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="82.666666666666671"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jk1-rD-Yuv">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="147.33333333333334"/>
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="82.666666666666671"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kK-f8-oP6" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="147.33333333333334"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="736" height="82.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C8o-aR-lM9">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="147.33333333333334"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="736" height="82.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="EuphemiaUCAS" family="Euphemia UCAS" pointSize="26"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -117,7 +106,7 @@
                                 </constraints>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.089960315268372379" green="0.28766524264071869" blue="0.62302536316934576" alpha="0.41909246575342468" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
                         <constraints>
                             <constraint firstItem="jk1-rD-Yuv" firstAttribute="top" secondItem="ZTr-mV-3O3" secondAttribute="bottom" id="0qv-7H-FJL"/>
                             <constraint firstItem="jk1-rD-Yuv" firstAttribute="leading" secondItem="1DW-aK-Las" secondAttribute="leading" id="8wr-RX-hNi"/>
@@ -143,377 +132,722 @@
                         <viewControllerLayoutGuide type="bottom" id="A4T-sH-E43"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ueK-gL-ivz">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="568.66666666666674"/>
+                        <rect key="frame" x="0.0" y="0.0" width="736" height="311.33333333333337"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Q2q-HL-wP5">
-                                <rect key="frame" x="0.0" y="5" width="414" height="563.66666666666663"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mnj-nX-wSu">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="90.666666666666671"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rJx-d4-sgW">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="151.33333333333334"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="0xv-xC-Ips">
+                                        <rect key="frame" x="0.0" y="0.0" width="623.66666666666663" height="90.666666666666671"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="l44-45-lzz">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="73.333333333333329"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="10007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCw-0E-EoW">
-                                                        <rect key="frame" x="0.0" y="0.0" width="134.66666666666666" height="73.333333333333329"/>
-                                                        <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="sin">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="CU0-H9-Pni"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="10008" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ewg-F3-HN6">
-                                                        <rect key="frame" x="139.66666666666669" y="0.0" width="134.66666666666669" height="73.333333333333329"/>
-                                                        <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="cos">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="D12-mZ-0f6"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="10009" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pPa-Ij-qNm">
-                                                        <rect key="frame" x="279.33333333333326" y="0.0" width="134.66666666666669" height="73.333333333333329"/>
-                                                        <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="log">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="lnf-by-a7i"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <variation key="heightClass=compact" axis="vertical"/>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="SF5-qD-m4H">
-                                                <rect key="frame" x="0.0" y="78.333333333333343" width="414" height="73.000000000000028"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="10006" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yUW-0k-Bd2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="134.66666666666666" height="73.000000000000014"/>
-                                                        <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
-                                                        <state key="normal" title="√">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Znt-wY-vih"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="10005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hzh-Lx-RKO">
-                                                        <rect key="frame" x="139.66666666666669" y="0.0" width="134.66666666666669" height="73.000000000000014"/>
-                                                        <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
-                                                        <state key="normal" title="^">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="LCN-wP-pCa"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="10012" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1k6-2v-afG">
-                                                        <rect key="frame" x="279.33333333333326" y="0.0" width="134.66666666666669" height="73.000000000000014"/>
-                                                        <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
-                                                        <state key="normal" title="π">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="ORa-Fx-cuN"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                                <variation key="heightClass=compact" axis="vertical"/>
-                                            </stackView>
-                                        </subviews>
-                                        <variation key="heightClass=compact" axis="horizontal"/>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cnq-Ui-VhF">
-                                        <rect key="frame" x="0.0" y="161.33333333333337" width="414" height="402.33333333333326"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B6v-Zf-VNW">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="76.666666666666657"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="10010" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-Wg-Iwo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="76.666666666666657"/>
-                                                        <color key="backgroundColor" red="0.58870307470000005" green="0.55539929389999998" blue="1" alpha="0.3979173801" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="(">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="DIo-yZ-X3v"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="10011" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW7-Iq-Hxn">
-                                                        <rect key="frame" x="104.66666666666666" y="0.0" width="99.999999999999972" height="76.666666666666657"/>
-                                                        <color key="backgroundColor" red="0.58870307470000005" green="0.55539929389999998" blue="1" alpha="0.3979173801" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title=")">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="PEB-28-rac"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="10024" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4x-h2-M9e">
-                                                        <rect key="frame" x="209.66666666666669" y="0.0" width="99.666666666666686" height="76.666666666666657"/>
-                                                        <color key="backgroundColor" red="0.58870307470000005" green="0.55539929389999998" blue="1" alpha="0.3979173801" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="⌫">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="YnN-E9-fAg"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="10014" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-I4-SiN">
-                                                        <rect key="frame" x="314.33333333333326" y="0.0" width="99.666666666666686" height="76.666666666666657"/>
-                                                        <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="C">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="KKr-HE-TlX"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NMF-cj-gi3">
-                                                <rect key="frame" x="0.0" y="81.666666666666657" width="414" height="76.333333333333314"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUD-90-gXj">
-                                                        <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="76.333333333333314"/>
-                                                        <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="7">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Zhl-K1-yw7"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARB-1x-uXz">
-                                                        <rect key="frame" x="104.66666666666666" y="0.0" width="99.999999999999972" height="76.333333333333314"/>
-                                                        <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="8">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="UGh-fz-dDB"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eC-Y6-eWm">
-                                                        <rect key="frame" x="209.66666666666669" y="0.0" width="99.666666666666686" height="76.333333333333314"/>
-                                                        <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="9">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="NJO-kF-ci3"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="10004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1T-Gh-15L">
-                                                        <rect key="frame" x="314.33333333333326" y="0.0" width="99.666666666666686" height="76.333333333333314"/>
-                                                        <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="÷">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="dTf-Sb-BPH"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nCj-0h-Y0E">
-                                                <rect key="frame" x="0.0" y="162.99999999999997" width="414" height="76.333333333333371"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWd-u2-SUQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="76.333333333333371"/>
-                                                        <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="4">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Egh-ad-QVr"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NmH-sh-EWB">
-                                                        <rect key="frame" x="104.66666666666666" y="0.0" width="99.999999999999972" height="76.333333333333371"/>
-                                                        <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="5">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="blQ-gV-bRp"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEJ-Ci-zxC">
-                                                        <rect key="frame" x="209.66666666666669" y="0.0" width="99.666666666666686" height="76.333333333333371"/>
-                                                        <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="6">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Pog-6h-x5y"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="10003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVX-L9-BfU">
-                                                        <rect key="frame" x="314.33333333333326" y="0.0" width="99.666666666666686" height="76.333333333333371"/>
-                                                        <color key="backgroundColor" red="0.81700702022461413" green="0.21492961145317657" blue="0.90426713197969544" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="×">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="nFc-qs-QCD"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RNF-pK-MkL">
-                                                <rect key="frame" x="0.0" y="244.33333333333331" width="414" height="76.666666666666629"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlX-eU-PeT">
-                                                        <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="76.666666666666629"/>
-                                                        <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="1">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="iuz-3d-Fdi"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hG-SK-miO">
-                                                        <rect key="frame" x="104.66666666666666" y="0.0" width="99.999999999999972" height="76.666666666666629"/>
-                                                        <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="2">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Vcn-oJ-8CA"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzN-Sr-7ks">
-                                                        <rect key="frame" x="209.66666666666669" y="0.0" width="99.666666666666686" height="76.666666666666629"/>
-                                                        <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="3">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="vmV-dg-XqM"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-93-31b">
-                                                        <rect key="frame" x="314.33333333333326" y="0.0" width="99.666666666666686" height="76.666666666666629"/>
-                                                        <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="-">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="9oS-1P-ycy"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="psx-eV-3tY">
-                                                <rect key="frame" x="0.0" y="326" width="414" height="76.333333333333314"/>
-                                                <subviews>
-                                                    <button opaque="NO" tag="10015" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odD-2i-6si">
-                                                        <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="76.333333333333314"/>
-                                                        <color key="backgroundColor" red="0.58870307470000005" green="0.55539929389999998" blue="1" alpha="0.3979173801" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title=".">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="r4h-6T-SJ2"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0B-Jg-0qV">
-                                                        <rect key="frame" x="104.66666666666666" y="0.0" width="99.999999999999972" height="76.333333333333314"/>
-                                                        <color key="backgroundColor" red="0.5887030746872941" green="0.55539929391785403" blue="1" alpha="0.39791738013698624" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="0">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="0tv-m5-BEx"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="10013" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qu-uf-dbS">
-                                                        <rect key="frame" x="209.66666666666669" y="0.0" width="99.666666666666686" height="76.333333333333314"/>
-                                                        <color key="backgroundColor" red="0.31937153515691968" green="0.070242851300851242" blue="0.47870399748223347" alpha="0.58154109589041092" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="=">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="3hd-k2-aEG"/>
-                                                        </connections>
-                                                    </button>
-                                                    <button opaque="NO" tag="10001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaY-vO-crK">
-                                                        <rect key="frame" x="314.33333333333326" y="0.0" width="99.666666666666686" height="76.333333333333314"/>
-                                                        <color key="backgroundColor" red="0.81700702020000004" green="0.21492961150000001" blue="0.90426713199999997" alpha="0.42999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                                        <state key="normal" title="+">
-                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                        </state>
-                                                        <connections>
-                                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="LP4-Oj-XjV"/>
-                                                        </connections>
-                                                    </button>
-                                                </subviews>
-                                            </stackView>
+                                            <button opaque="NO" tag="10007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejh-sc-JWi" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="99.666666666666671" height="90.666666666666671"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="sin">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="NH2-dr-mgy"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10009" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NcC-mL-Eod" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="104.66666666666666" y="0.0" width="99.999999999999972" height="90.666666666666671"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="log">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Afj-IG-nt4"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10008" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYl-qD-nSL" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="209.66666666666669" y="0.0" width="99.666666666666686" height="90.666666666666671"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="cos">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="gVt-P0-60f"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10006" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nhg-u8-AME" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="314.33333333333326" y="0.0" width="99.666666666666686" height="90.666666666666671"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                                <state key="normal" title="√">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="vdy-Xe-erA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10012" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D6E-cx-faE" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="419" y="0.0" width="99.666666666666629" height="90.666666666666671"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                                <state key="normal" title="π">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Ifp-gL-HnZ"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idD-EP-JBh" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="523.66666666666663" y="0.0" width="100" height="90.666666666666671"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                                <state key="normal" title="^">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="FYo-wf-dsb"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" tag="10013" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="smi-WF-U1y">
-                                        <rect key="frame" x="612.33333333333348" y="0.0" width="123.66666666666663" height="306.33333333333331"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.3193715352" green="0.070242851300000006" blue="0.47870399749999998" alpha="0.58154109590000003" colorSpace="custom" customColorSpace="sRGB"/>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="0xv-xC-Ips" secondAttribute="trailing" id="7kz-fh-4pr"/>
+                                    <constraint firstAttribute="bottom" secondItem="0xv-xC-Ips" secondAttribute="bottom" id="GpU-K3-Lay"/>
+                                    <constraint firstItem="0xv-xC-Ips" firstAttribute="top" secondItem="mnj-nX-wSu" secondAttribute="top" id="IUA-GI-368"/>
+                                    <constraint firstItem="0xv-xC-Ips" firstAttribute="leading" secondItem="mnj-nX-wSu" secondAttribute="leading" id="vJB-uM-ddb"/>
+                                </constraints>
+                            </scrollView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cnq-Ui-VhF">
+                                <rect key="frame" x="148" y="0.0" width="588" height="311.33333333333331"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="B6v-Zf-VNW">
+                                        <rect key="frame" x="0.0" y="0.0" width="588" height="58.333333333333336"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="10010" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIN-Wg-Iwo" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="143.33333333333331" height="58.333333333333336"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="(">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="DIo-yZ-X3v"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10011" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aW7-Iq-Hxn" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="148.33333333333331" y="0.0" width="143" height="58.333333333333336"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title=")">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="PEB-28-rac"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10024" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I4x-h2-M9e" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="296.33333333333337" y="0.0" width="143.33333333333331" height="58.333333333333336"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="⌫">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="YnN-E9-fAg"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10014" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-I4-SiN" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="444.66666666666657" y="0.0" width="143.33333333333343" height="58.333333333333336"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="C">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="KKr-HE-TlX"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="NMF-cj-gi3">
+                                        <rect key="frame" x="0.0" y="63.333333333333329" width="588" height="58.333333333333329"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DUD-90-gXj" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="143.33333333333331" height="58.333333333333336"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="7">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Zhl-K1-yw7"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="8" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ARB-1x-uXz" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="148.33333333333331" y="0.0" width="143" height="58.333333333333336"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="8">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="UGh-fz-dDB"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="9" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eC-Y6-eWm" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="296.33333333333337" y="0.0" width="143.33333333333331" height="58.333333333333336"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="9">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="NJO-kF-ci3"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H1T-Gh-15L" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="444.66666666666657" y="0.0" width="143.33333333333343" height="58.333333333333336"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="÷">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="dTf-Sb-BPH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="nCj-0h-Y0E">
+                                        <rect key="frame" x="0.0" y="126.66666666666666" width="588" height="57.999999999999972"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wWd-u2-SUQ" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="143.33333333333331" height="57.999999999999986"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="4">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Egh-ad-QVr"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NmH-sh-EWB" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="148.33333333333331" y="0.0" width="143" height="57.999999999999986"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="5">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="blQ-gV-bRp"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEJ-Ci-zxC" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="296.33333333333337" y="0.0" width="143.33333333333331" height="57.999999999999986"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="6">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Pog-6h-x5y"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVX-L9-BfU" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="444.66666666666657" y="0.0" width="143.33333333333343" height="57.999999999999986"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="×">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="nFc-qs-QCD"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RNF-pK-MkL">
+                                        <rect key="frame" x="0.0" y="189.66666666666663" width="588" height="58.333333333333343"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qlX-eU-PeT" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="143.33333333333331" height="58.333333333333343"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="1">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="iuz-3d-Fdi"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hG-SK-miO" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="148.33333333333331" y="0.0" width="143" height="58.333333333333343"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="2">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Vcn-oJ-8CA"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CzN-Sr-7ks" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="296.33333333333337" y="0.0" width="143.33333333333331" height="58.333333333333343"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="3">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="vmV-dg-XqM"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hAP-93-31b" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="444.66666666666657" y="0.0" width="143.33333333333343" height="58.333333333333343"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="-">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="9oS-1P-ycy"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="psx-eV-3tY">
+                                        <rect key="frame" x="0.0" y="252.99999999999997" width="588" height="58.333333333333286"/>
+                                        <subviews>
+                                            <button opaque="NO" tag="10015" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odD-2i-6si" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="143.33333333333331" height="58.333333333333314"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title=".">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="r4h-6T-SJ2"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0B-Jg-0qV" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="148.33333333333331" y="0.0" width="143" height="58.333333333333314"/>
+                                                <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="0">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onNumericTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="0tv-m5-BEx"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10013" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7qu-uf-dbS" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="296.33333333333337" y="0.0" width="143.33333333333331" height="58.333333333333314"/>
+                                                <color key="backgroundColor" red="0.98974609375" green="0.48832912071078433" blue="0.0" alpha="0.60006421232876717" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="=">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="3hd-k2-aEG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" tag="10001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XaY-vO-crK" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                                <rect key="frame" x="444.66666666666657" y="0.0" width="143.33333333333343" height="58.333333333333314"/>
+                                                <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                                <state key="normal" title="+">
+                                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                </state>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                        <real key="value" value="20"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <connections>
+                                                    <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="LP4-Oj-XjV"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="3O5-5n-J81">
+                                <rect key="frame" x="0.0" y="0.0" width="143" height="311.33333333333331"/>
+                                <subviews>
+                                    <button opaque="NO" tag="10007" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8jX-hC-4Oc" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="143" height="47.666666666666664"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
-                                        <state key="normal" title="=">
+                                        <state key="normal" title="sin">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="u4B-ln-dc4"/>
+                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="T3r-c7-7gA"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="10009" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cgK-TY-70m" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="52.666666666666671" width="143" height="47.666666666666671"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                        <state key="normal" title="log">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="a1h-OW-mGS"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="10008" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iaI-eZ-gJM" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="105.33333333333334" width="143" height="48.000000000000028"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="Verdana" family="Verdana" pointSize="20"/>
+                                        <state key="normal" title="cos">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="wCa-PZ-ZE1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="10006" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AJA-4u-gnL" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="158.33333333333337" width="143" height="47.666666666666657"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <state key="normal" title="√">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="jif-8W-VD1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="10012" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wM4-Ja-V2Y" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="211" width="143" height="47.666666666666686"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <state key="normal" title="π">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="iTX-7h-yvL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="10005" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tss-X3-uYq" customClass="RoundButton" customModule="NiceCalc" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="263.66666666666669" width="143" height="47.666666666666629"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="0.60105415239726023" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="ZapfDingbatsITC" family="Zapf Dingbats" pointSize="20"/>
+                                        <state key="normal" title="^">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                                <real key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadious">
+                                                <real key="value" value="20"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="onOperatorTapWithButton:" destination="7P0-PI-dw0" eventType="touchUpInside" id="Jho-1q-qMu"/>
                                         </connections>
                                     </button>
                                 </subviews>
-                                <variation key="default">
-                                    <mask key="subviews">
-                                        <exclude reference="smi-WF-U1y"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=compact" axis="horizontal">
-                                    <mask key="subviews">
-                                        <include reference="smi-WF-U1y"/>
-                                    </mask>
-                                </variation>
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="Q2q-HL-wP5" firstAttribute="leading" secondItem="ueK-gL-ivz" secondAttribute="leading" id="A6f-Tg-NNe"/>
-                            <constraint firstAttribute="trailing" secondItem="Q2q-HL-wP5" secondAttribute="trailing" id="Kgu-c7-pKY"/>
-                            <constraint firstItem="Q2q-HL-wP5" firstAttribute="top" secondItem="vYP-Q2-eTu" secondAttribute="bottom" constant="5" id="jOF-se-Yce"/>
-                            <constraint firstItem="A4T-sH-E43" firstAttribute="top" secondItem="Q2q-HL-wP5" secondAttribute="bottom" id="zgn-PU-bgF"/>
+                            <constraint firstItem="cnq-Ui-VhF" firstAttribute="leading" secondItem="3O5-5n-J81" secondAttribute="trailing" constant="5" id="8rU-Ta-FSg"/>
+                            <constraint firstAttribute="trailing" secondItem="mnj-nX-wSu" secondAttribute="trailing" id="93E-6X-0cZ"/>
+                            <constraint firstItem="mnj-nX-wSu" firstAttribute="top" secondItem="vYP-Q2-eTu" secondAttribute="bottom" id="BTd-P9-Onc"/>
+                            <constraint firstItem="mnj-nX-wSu" firstAttribute="height" secondItem="B6v-Zf-VNW" secondAttribute="height" id="Dbl-HU-AbY"/>
+                            <constraint firstItem="cnq-Ui-VhF" firstAttribute="leading" secondItem="ueK-gL-ivz" secondAttribute="leading" id="Ehe-GE-Gij"/>
+                            <constraint firstItem="ejh-sc-JWi" firstAttribute="width" secondItem="wIN-Wg-Iwo" secondAttribute="width" id="EpO-gR-bTH"/>
+                            <constraint firstItem="3O5-5n-J81" firstAttribute="width" secondItem="wIN-Wg-Iwo" secondAttribute="width" id="QLG-0v-6kd"/>
+                            <constraint firstAttribute="trailing" secondItem="cnq-Ui-VhF" secondAttribute="trailing" id="Ua7-wE-aiu"/>
+                            <constraint firstItem="3O5-5n-J81" firstAttribute="top" secondItem="vYP-Q2-eTu" secondAttribute="bottom" id="XcV-cp-WQr"/>
+                            <constraint firstItem="A4T-sH-E43" firstAttribute="top" secondItem="3O5-5n-J81" secondAttribute="bottom" id="Yf3-6C-HiN"/>
+                            <constraint firstItem="A4T-sH-E43" firstAttribute="top" secondItem="cnq-Ui-VhF" secondAttribute="bottom" id="dWJ-zQ-xCs"/>
+                            <constraint firstItem="cnq-Ui-VhF" firstAttribute="top" secondItem="mnj-nX-wSu" secondAttribute="bottom" constant="5" id="nxT-ME-bEl"/>
+                            <constraint firstItem="mnj-nX-wSu" firstAttribute="leading" secondItem="ueK-gL-ivz" secondAttribute="leading" id="t2i-lz-2Zq"/>
+                            <constraint firstItem="3O5-5n-J81" firstAttribute="leading" secondItem="ueK-gL-ivz" secondAttribute="leading" id="uEY-ZZ-q7C"/>
+                            <constraint firstItem="ejh-sc-JWi" firstAttribute="height" secondItem="wIN-Wg-Iwo" secondAttribute="height" id="uNg-Xr-xLN"/>
+                            <constraint firstItem="cnq-Ui-VhF" firstAttribute="top" secondItem="vYP-Q2-eTu" secondAttribute="bottom" id="z5U-4a-bkL"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="3O5-5n-J81"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="QLG-0v-6kd"/>
+                                <exclude reference="XcV-cp-WQr"/>
+                                <exclude reference="uEY-ZZ-q7C"/>
+                                <exclude reference="8rU-Ta-FSg"/>
+                                <exclude reference="z5U-4a-bkL"/>
+                                <exclude reference="Yf3-6C-HiN"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="subviews">
+                                <exclude reference="mnj-nX-wSu"/>
+                                <include reference="3O5-5n-J81"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="QLG-0v-6kd"/>
+                                <include reference="XcV-cp-WQr"/>
+                                <include reference="uEY-ZZ-q7C"/>
+                                <exclude reference="EpO-gR-bTH"/>
+                                <exclude reference="uNg-Xr-xLN"/>
+                                <exclude reference="93E-6X-0cZ"/>
+                                <exclude reference="BTd-P9-Onc"/>
+                                <exclude reference="Dbl-HU-AbY"/>
+                                <exclude reference="t2i-lz-2Zq"/>
+                                <include reference="8rU-Ta-FSg"/>
+                                <exclude reference="Ehe-GE-Gij"/>
+                                <exclude reference="nxT-ME-bEl"/>
+                                <include reference="z5U-4a-bkL"/>
+                                <include reference="Yf3-6C-HiN"/>
+                            </mask>
+                        </variation>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72D-M4-aTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -522,6 +856,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backGround" width="1024" height="683"/>
+        <image name="backGround" width="626" height="532"/>
     </resources>
 </document>

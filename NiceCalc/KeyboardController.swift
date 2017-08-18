@@ -20,5 +20,8 @@ class KeyboardController: UIViewController {
   @IBAction func onOperatorTap(button: UIButton) {
     onUtilityTap?(button.tag)
   }
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        self.updateViewConstraints()
+    }
 }
 
