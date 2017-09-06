@@ -9,11 +9,11 @@
 import Foundation
 
 class OutputAdapter: OutputProtocol {
-  static let shared = OutputAdapter()
+    static let shared = OutputAdapter()
     
-  var resultDisplay: ((String)->())?
+    var resultDisplay: ((String)->())?
     
-  internal func presentResult(result: String) {
-    resultDisplay?(result)
-  }
+    internal func presentResult(result: String) {
+        resultDisplay?(result)
+    }
 }

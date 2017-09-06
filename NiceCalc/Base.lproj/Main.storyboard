@@ -849,6 +849,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="scroll" destination="mnj-nX-wSu" id="tez-jw-pHx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72D-M4-aTA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
