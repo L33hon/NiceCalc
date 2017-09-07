@@ -47,12 +47,12 @@ class Brain: Model {
       ]
     
     private func needAMultiplySign() -> Bool {
-        let last = display.characters.last!
+        let last = display.characters.last ?? " "
         return (last >= "0" && last <= "9") || last == ")" || last == "π"
     }
     
     private func lastSymbolIsANumber() -> Bool {
-        let lastCharacter = display.characters.last!
+        let lastCharacter = display.characters.last ?? " "
         return lastCharacter >= "0" && lastCharacter <= "9"
     }
     
@@ -90,11 +90,13 @@ class Brain: Model {
     }
     
     func input(_ operation: String) {
-        if isBinary[operation]! {
-            validatedBinaryInput(operation)
-        } else {
-            validatedUnaryInput(operation)
-            process()
+        if let isBinary = isBinary[operation] {
+            if isBinary {
+                validatedBinaryInput(operation)
+            } else {
+                validatedUnaryInput(operation)
+                process()
+            }
         }
     }
     
@@ -114,8 +116,8 @@ class Brain: Model {
                 display.characters.removeLast()
                 display += " " + operation + " "
                 process()
-            } else if lastSymbolIsANumber() || display.characters.last! == "π" ||
-                display.characters.last! == ")" {
+            } else if lastSymbolIsANumber() || display.characters.last == "π" ||
+                display.characters.last == ")" {
                 display += " " + operation + " "
                 process()
             }
@@ -127,7 +129,7 @@ class Brain: Model {
             display = operation
         }
         else {
-            let char = display.characters.last!
+            let char = display.characters.last
             if lastSymbolIsANumber() || char == "π" || char == ")" {
                 display += " × " + operation
             } else if char == "." {
@@ -149,7 +151,8 @@ class Brain: Model {
                 process()
             }
         } else {
-            let last = String(display.characters.last!)
+            let lastCharacter = display.characters.last ?? " "
+            let last = String(lastCharacter)
             let unaryMinusRequired = [ "(", StrOperation.sqrt.rawValue, "n", "s"]
             if last == " " {
                 display.characters.removeLast()
@@ -174,12 +177,13 @@ class Brain: Model {
         if isStartingNewEquation {
             display = "("
         } else {
-            let char = String(display.characters.last!)
-            if char != " " {
-                if char == "." {
+            let lastCharacter = display.characters.last ?? " "
+            let last = String(lastCharacter)
+            if last != " " {
+                if last == "." {
                     display.characters.removeLast()
                     display += " " + StrOperation.multiply.rawValue + " ("
-                } else if !lastSymbolIsANumber(), char != "π" {
+                } else if !lastSymbolIsANumber(), last != "π" {
                     display += "("
                 } else {
                     display += " " + StrOperation.multiply.rawValue + " ("
@@ -193,7 +197,8 @@ class Brain: Model {
     
     func rightBracket() {
         if leftBracketsCount > rightBracketsCount {
-            let char = String(display.characters.last!)
+            let lastCharacter = display.characters.last ?? " "
+            let char = String(lastCharacter)
             if char != "(" {
                 if char == "π" || lastSymbolIsANumber() || char == ")" {
                     display += ")"
@@ -210,8 +215,9 @@ class Brain: Model {
     
     func inputPi() {
         if !isStartingNewEquation {
-            if needAMultiplySign() || display.characters.last! == "." {
-                if display.characters.last! == "." {
+            let lastCharacter = display.characters.last ?? " "
+            if needAMultiplySign() || lastCharacter == "." {
+                if lastCharacter == "." {
                     display.characters.removeLast()
                 }
                 display += " " + StrOperation.multiply.rawValue + " π"
@@ -225,11 +231,12 @@ class Brain: Model {
     }
     
     func inputDot() {
-        if display.characters.last! != "π" {
-            if !lastSymbolIsANumber() && display.characters.last != "." {
+        let lastCharacter = display.characters.last ?? " "
+        if lastCharacter != "π" {
+            if !lastSymbolIsANumber() && lastCharacter != "." {
                 display += "0."
             } else {
-                let number = display.components(separatedBy: " ").last!
+                let number = display.components(separatedBy: " ").last ?? " "
                 if number.range(of: ".") == nil {
                     display += "."
                 }
@@ -264,7 +271,8 @@ class Brain: Model {
             case "(": leftBracketsCount -= 1
             case ")": rightBracketsCount -= 1
             case "n":
-                if display.characters.last! == "l" {
+                let lastCharacter = display.characters.last ?? " "
+                if lastCharacter == "l" {
                     display.characters.removeLast()
                 } else {
                     let indexForThirdLast = display.index(display.startIndex, offsetBy: display.characters.count - 2)
@@ -293,14 +301,16 @@ class Brain: Model {
     
     func equal() {
         if containsANumber() || display.characters.contains("π") {
-            while !lastSymbolIsANumber() && display.characters.last! != "π" {
-                if display.characters.last! == ")" {
+            var lastCharacter = display.characters.last ?? " "
+            while !lastSymbolIsANumber() && lastCharacter != "π" {
+                if lastCharacter == ")" {
                     rightBracketsCount -= 1
                 }
-                if display.characters.last! == "(" {
+                if lastCharacter == "(" {
                     leftBracketsCount -= 1
                 }
                 display.characters.removeLast()
+                lastCharacter = display.characters.last ?? " "
             }
             var neededBrackets = leftBracketsCount - rightBracketsCount
             while neededBrackets > 0 {
@@ -402,29 +412,30 @@ class Brain: Model {
             if Double(word) != nil {
                 stack += [word]
             } else if unaryOperations.contains(word) {
-                let number = Double(stack.removeLast())
+                let number = Double(stack.removeLast()) ?? 0
                 switch word {
-                    case StrOperation.sin.rawValue: stack += [String(sin(number!))]
-                    case StrOperation.cos.rawValue: stack += [String(cos(number!))]
-                    case StrOperation.ln.rawValue: stack += [String(log(number!))]
-                    case StrOperation.sqrt.rawValue: stack += [String(sqrt(number!))]
-                    case StrOperation.unaryMinus.rawValue : stack += [String(number! * (-1))]
+                    case StrOperation.sin.rawValue: stack += [String(sin(number))]
+                    case StrOperation.cos.rawValue: stack += [String(cos(number))]
+                    case StrOperation.ln.rawValue: stack += [String(log(number))]
+                    case StrOperation.sqrt.rawValue: stack += [String(sqrt(number))]
+                    case StrOperation.unaryMinus.rawValue : stack += [String(number * (-1))]
                     default: break
                 }
             } else {
-                let firstNumber = Double(stack.removeLast())
-                let secondNumber = Double(stack.removeLast())
+                let firstNumber = Double(stack.removeLast()) ?? 0
+                let secondNumber = Double(stack.removeLast()) ?? 0
                 switch word {
-                    case StrOperation.plus.rawValue: stack += [String(firstNumber! + secondNumber!)]
-                    case StrOperation.binaryMinus.rawValue: stack += [String(firstNumber! - secondNumber!)]
-                    case StrOperation.divide.rawValue: stack += [String(firstNumber! / secondNumber!)]
-                    case StrOperation.multiply.rawValue: stack += [String(firstNumber! * secondNumber!)]
-                    case StrOperation.power.rawValue: stack += [String(pow(firstNumber!,secondNumber!))]
+                    case StrOperation.plus.rawValue: stack += [String(firstNumber + secondNumber)]
+                    case StrOperation.binaryMinus.rawValue: stack += [String(firstNumber - secondNumber)]
+                    case StrOperation.divide.rawValue: stack += [String(firstNumber / secondNumber)]
+                    case StrOperation.multiply.rawValue: stack += [String(firstNumber * secondNumber)]
+                    case StrOperation.power.rawValue: stack += [String(pow(firstNumber,secondNumber))]
                     default: break
                 }
             }
         }
-        let res = round(Double(stack.removeLast())! * pow(10, 10)) / pow(10, 10)
+        let remaining = Double(stack.removeLast()) ?? 0
+        let res = round(remaining * pow(10, 10)) / pow(10, 10)
         if res == -res {
             return "0"
         } else {
