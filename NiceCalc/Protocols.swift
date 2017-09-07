@@ -47,3 +47,18 @@ enum Operation: Int {
     case ctg = 10023
     case clearS = 10024
 }
+
+enum StrOperation: String {
+    case power = "^"
+    case sqrt = "√"
+    case multiply = "×"
+    case divide = "÷"
+    case plus = "+"
+    case binaryMinus = "﹣"
+    case unaryMinus = "-"
+    case sin = "sin"
+    case cos = "cos"
+    case ln = "ln"
+    case leftBracket = "("
+    case rightBracket = ")"
+}

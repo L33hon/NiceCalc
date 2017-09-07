@@ -19,31 +19,31 @@ class Brain: Model {
     private var rightBracketsCount = 0
     
     private let isBinary = [
-        "^": true,
-        "√": false,
-        "×": true,
-        "÷": true,
-        "+": true,
-        "﹣": true,
-        "-": false,
-        "sin": false,
-        "cos": false,
-        "ln": false,
-        "(": false,
-        ")": false,
+        StrOperation.power.rawValue: true,
+        StrOperation.sqrt.rawValue: false,
+        StrOperation.multiply.rawValue: true,
+        StrOperation.divide.rawValue: true,
+        StrOperation.plus.rawValue: true,
+        StrOperation.binaryMinus.rawValue: true,
+        StrOperation.unaryMinus.rawValue: false,
+        StrOperation.sin.rawValue: false,
+        StrOperation.cos.rawValue: false,
+        StrOperation.ln.rawValue: false,
+        StrOperation.leftBracket.rawValue: false,
+        StrOperation.rightBracket.rawValue: false,
     ]
     
     private let operationPriorities = [
-        "^": 4,
-        "√": 5,
-        "-": 5,
-        "×": 3,
-        "÷": 3,
-        "+": 2,
-        "﹣": 2,
-        "sin": 5,
-        "cos": 5,
-        "ln": 5,
+        StrOperation.power.rawValue: 4,
+        StrOperation.sqrt.rawValue: 5,
+        StrOperation.unaryMinus.rawValue: 5,
+        StrOperation.multiply.rawValue: 3,
+        StrOperation.divide.rawValue: 3,
+        StrOperation.plus.rawValue: 2,
+        StrOperation.binaryMinus.rawValue: 2,
+        StrOperation.sin.rawValue: 5,
+        StrOperation.cos.rawValue: 5,
+        StrOperation.ln.rawValue: 5,
       ]
     
     private func needAMultiplySign() -> Bool {
@@ -78,9 +78,9 @@ class Brain: Model {
             if let lastChar = display.characters.last {
                 switch lastChar {
                 case "π":
-                    display += " ÷ \(number)"
+                    display += " " + StrOperation.divide.rawValue + "\(number)"
                 case ")":
-                    display += " × \(number)"
+                    display += " " + StrOperation.multiply.rawValue + "\(number)"
                 default:
                     display += "\(number)"
                 }
@@ -142,28 +142,28 @@ class Brain: Model {
     func inputMinus() {
         if isStartingNewEquation {
             if equation == "" {
-                display = "-"
+                display = StrOperation.unaryMinus.rawValue
                 process()
             } else {
-                display += " ﹣ "
+                display += " " + StrOperation.binaryMinus.rawValue + " "
                 process()
             }
         } else {
             let last = String(display.characters.last!)
-            let unaryMinusRequired = [ "(", "√", "n", "s"]
+            let unaryMinusRequired = [ "(", StrOperation.sqrt.rawValue, "n", "s"]
             if last == " " {
                 display.characters.removeLast()
-                display = display.components(separatedBy: " ").dropLast().joined(separator: " ") + " ﹣ "
+                display = display.components(separatedBy: " ").dropLast().joined(separator: " ") + " " + StrOperation.binaryMinus.rawValue + " "
                 process()
             } else if last == "." {
                 display.characters.removeLast()
-                display += " ﹣ "
+                display += " " + StrOperation.binaryMinus.rawValue + " "
                 process()
             } else if lastSymbolIsANumber() || last == "π" || last == ")" {
-                display += " ﹣ "
+                display += " " + StrOperation.binaryMinus.rawValue + " "
                 process()
             } else if unaryMinusRequired.contains(last) {
-                display += "-"
+                display += StrOperation.unaryMinus.rawValue
                 process()
             }
         }
@@ -178,11 +178,11 @@ class Brain: Model {
             if char != " " {
                 if char == "." {
                     display.characters.removeLast()
-                    display += " × ("
-                } else if !lastSymbolIsANumber() || char == "π" {
+                    display += " " + StrOperation.multiply.rawValue + " ("
+                } else if !lastSymbolIsANumber(), char != "π" {
                     display += "("
                 } else {
-                    display += " × ("
+                    display += " " + StrOperation.multiply.rawValue + " ("
                 }
             } else {
                 display += "("
@@ -214,7 +214,7 @@ class Brain: Model {
                 if display.characters.last! == "." {
                     display.characters.removeLast()
                 }
-                display += " × π"
+                display += " " + StrOperation.multiply.rawValue + " π"
             } else {
                 display += "π"
             }
@@ -393,29 +393,33 @@ class Brain: Model {
     private func calculateResult() -> String {
         let equationInPNMode = toPolandNotation(words: toWords(equation))
         var stack : [String] = [] // buffer for digit
-        let unaryOperations = ["sin", "-", "cos", "ln", "√"]
+        let unaryOperations = [StrOperation.sin.rawValue,
+                               StrOperation.unaryMinus.rawValue,
+                               StrOperation.cos.rawValue,
+                               StrOperation.ln.rawValue,
+                               StrOperation.sqrt.rawValue]
         for word in equationInPNMode.reversed() {
             if Double(word) != nil {
                 stack += [word]
             } else if unaryOperations.contains(word) {
                 let number = Double(stack.removeLast())
                 switch word {
-                    case "sin": stack += [String(sin(number!))]
-                    case "cos": stack += [String(cos(number!))]
-                    case "ln": stack += [String(log(number!))]
-                    case "√": stack += [String(sqrt(number!))]
-                    case "-" : stack += [String(number! * (-1))]
+                    case StrOperation.sin.rawValue: stack += [String(sin(number!))]
+                    case StrOperation.cos.rawValue: stack += [String(cos(number!))]
+                    case StrOperation.ln.rawValue: stack += [String(log(number!))]
+                    case StrOperation.sqrt.rawValue: stack += [String(sqrt(number!))]
+                    case StrOperation.unaryMinus.rawValue : stack += [String(number! * (-1))]
                     default: break
                 }
             } else {
                 let firstNumber = Double(stack.removeLast())
                 let secondNumber = Double(stack.removeLast())
                 switch word {
-                    case "+": stack += [String(firstNumber! + secondNumber!)]
-                    case "﹣": stack += [String(firstNumber! - secondNumber!)]
-                    case "÷": stack += [String(firstNumber! / secondNumber!)]
-                    case "×": stack += [String(firstNumber! * secondNumber!)]
-                    case "^": stack += [String(pow(firstNumber!,secondNumber!))]
+                    case StrOperation.plus.rawValue: stack += [String(firstNumber! + secondNumber!)]
+                    case StrOperation.binaryMinus.rawValue: stack += [String(firstNumber! - secondNumber!)]
+                    case StrOperation.divide.rawValue: stack += [String(firstNumber! / secondNumber!)]
+                    case StrOperation.multiply.rawValue: stack += [String(firstNumber! * secondNumber!)]
+                    case StrOperation.power.rawValue: stack += [String(pow(firstNumber!,secondNumber!))]
                     default: break
                 }
             }

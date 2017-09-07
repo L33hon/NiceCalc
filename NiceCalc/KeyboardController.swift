@@ -23,13 +23,15 @@ class KeyboardController: UIViewController {
         onUtilityTap?(button.tag)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
-        UIView.animate(withDuration: 0.5, delay: 0, animations: {
+        UIView.animate(withDuration: 1, delay: 0.2, animations: {
             self.scroll.setContentOffset(.init(x: 20, y: 0), animated: false)
         }) { _ in
-            self.scroll.setContentOffset(.init(x: 0, y: 0), animated: true)
+            UIView.animate(withDuration: 1, animations: { 
+                self.scroll.setContentOffset(.init(x: 0, y: 0), animated: false)
+            })
         }
     }
     

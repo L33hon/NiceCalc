@@ -19,15 +19,15 @@ class InputAdapter: InputProtocol {
     
     internal func enterUtility(_ symbol: Operation) {
         switch symbol {
-        case .pls : input("+")
+        case .pls : input(StrOperation.plus.rawValue)
         case .mns : brain.inputMinus()
-        case .mul : input("×")
-        case .div : input("÷")
-        case .pow : input("^")
-        case .sqrt : input("√")
-        case .sin : input("sin")
-        case .cos : input("cos")
-        case .log : input("ln")
+        case .mul : input(StrOperation.multiply.rawValue)
+        case .div : input(StrOperation.divide.rawValue)
+        case .pow : input(StrOperation.power.rawValue)
+        case .sqrt : input(StrOperation.sqrt.rawValue)
+        case .sin : input(StrOperation.sin.rawValue)
+        case .cos : input(StrOperation.cos.rawValue)
+        case .log : input(StrOperation.ln.rawValue)
         case .leftBracket : brain.leftBracket()
         case .rightBracket : brain.rightBracket()
         case .pi : brain.inputPi()
